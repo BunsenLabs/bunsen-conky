@@ -1,0 +1,151 @@
+# For commands above TEXT check:
+# http://conky.sourceforge.net/config_settings.html
+#
+# For all command available below text check:
+# http://conky.sourceforge.net/variables.html
+
+# NOTE: You can add other commands ewith the "exec" options
+# and LUA
+
+# Bunsen Labs Conky help threads
+# http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+
+# Enjoy! :)
+
+# pkill -xf "conky -c $HOME/conky-BL/bl-top_l.conky" &
+
+###  Begin Window Settings  ##################################################
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar,skip_pager
+own_window_colour 000000
+own_window_class Conky
+own_window_title Bunsen Labs Top Conky
+
+### ARGB can be used for real transparency
+### NOTE that a composite manager is required for real transparency.
+### This option will not work as desired (in most cases) in conjunction with
+### own_window_type normal
+# own_window_argb_visual yes # Options: yes or no
+
+### When ARGB visuals are enabled, this use this to modify the alpha value
+### Use: own_window_type normal
+### Use: own_window_transparent no
+### Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
+# own_window_argb_value 50
+
+minimum_size 860 0  # w|h
+maximum_width 860
+
+gap_x 0		### left &right
+gap_y 10		### up & down
+
+alignment tm
+####################################################  End Window Settings  ###
+###  Font Settings  ##########################################################
+# Use Xft (anti-aliased font and stuff)
+use_xft yes
+xftfont Liberation Mono:bold:size=9
+
+# Alpha of Xft font. Must be a value at or between 1 and 0 ###
+xftalpha 1
+# Force UTF8? requires XFT ###
+override_utf8_locale yes
+
+uppercase no
+######################################################  End Font Settings  ###
+###  Color Settings  #########################################################
+draw_shades yes
+default_shade_color black
+
+draw_outline no # amplifies text if yes
+default_outline_color black
+
+default_color DCDCDC # Gainsboro
+color0 B0E0E6 # PowderBlue
+color1 778899 # LightSlateGray
+color2 D8BFD8 # Thistle
+color3 9ACD32 # YellowGreen
+color4 FFA07A # LightSalmon
+color5 FFDEAD # NavajoWhite
+color6 00BFFF # DeepSkyBlue
+color7 5F9EA0 # CadetBlue
+color8 BDB76B # DarkKhaki
+color9 CD5C5C # IndianRed
+#####################################################  End Color Settings  ###
+###  Borders Section  ########################################################
+draw_borders no
+# Stippled borders?
+stippled_borders 5
+# border margins
+border_inner_margin 5
+border_outer_margin 0
+# border width
+border_width 2
+# graph borders
+draw_graph_borders yes #no
+#default_graph_size 15 40
+#####################################################  End Borders Secton  ###
+###  Miscellaneous Section  ##################################################
+# Boolean value, if true, Conky will be forked to background when started.
+background yes
+
+# Adds spaces around certain objects to stop them from moving other things
+# around, this only helps if you are using a mono font
+# Options: right, left or none
+use_spacer none
+
+# Default and Minimum size is 256 - needs more for single commands that
+# "call" a lot of text IE: bash scripts
+#text_buffer_size 6144
+
+# Subtract (file system) buffers from used memory?
+no_buffers yes
+
+# change GiB to G and MiB to M
+short_units yes
+
+# Like it says, ot pads the decimals on % values
+# doesn't seem to work since v1.7.1
+pad_percents 2
+
+# Imlib2 image cache size, in bytes. Default 4MiB Increase this value if you use
+# $image lots. Set to 0 to disable the image cache.
+imlib_cache_size 0
+
+# Use the Xdbe extension? (eliminates flicker)
+# It is highly recommended to use own window with this one
+# so double buffer won't be so big.
+double_buffer yes
+
+#   Maximum size of user text buffer, i.e. layout below TEXT line in config file
+#  (default is 16384 bytes)
+# max_user_text 16384
+
+# Desired output unit of all objects displaying a temperature. Parameters are
+# either "fahrenheit" or "celsius". The default unit is degree Celsius.
+# temperature_unit Fahrenheit
+##############################################  End Miscellaneous Section  ###
+
+update_interval 1
+
+TEXT
+/Root ${if_match ${fs_used_perc /} < 10}  ${fs_used_perc /}\
+${else}${if_match ${fs_used_perc /} < 90} ${fs_used_perc /}\
+${else}${color9}${fs_used_perc /}${color}${endif}${endif}% \
+of ${fs_size /}\
+${goto 160}/HOME ${if_match ${fs_used_perc /home} < 10}  ${fs_used_perc /home}\
+${else}${if_match ${fs_used_perc /home} < 90} ${fs_used_perc /home}\
+${else}${color9}${fs_used_perc /home}${color}${endif}${endif}% \
+of ${fs_size /home}\
+${goto 315}CPU ${if_match ${cpu cpu0} < 10}  ${cpu cpu0}\
+${else}${if_match ${cpu cpu0} < 100} ${cpu cpu0}\
+${else}${color9}${cpu cpu0}${color}${endif}${endif}% @ ${freq_g}GHz\
+${goto 460}RAM ${if_match ${memperc} < 10}  ${memperc}\
+${else}${if_match ${memperc} < 100} ${memperc}\
+${else}${color9}${memperc}${color}${endif}${endif}% of ${memmax}\
+${goto 600}Read ${diskio_read}\
+${goto 680}Write ${diskio_write}\
+${alignr 5}${uptime_short}

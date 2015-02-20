@@ -1,0 +1,27 @@
+#!/bin/bash
+## click to start, click to stop
+## Original pkill line by: GrouchyGaijin - Ununtu Conky Thread
+##    to start stop a specific conky
+## This idea by: Stinkeye - Jan 2013 - Ununtu Conky Thread
+## start/stop conky with pkill line
+## With a tweak by: arclance
+## Final tweak by: Sector11 - added wmctrl
+## to start a connky on a specific desktop
+## remove "sticky" from own_window_hints
+
+## This incarnation created for Bunsen Labs Linux
+## Feb 2015
+
+#if pgrep -f "conky -c /path_to/conky/name-of-the.conky"
+#then
+#	pkill -xf "conky -c /path_to/conky/name-of-the.conky"
+#else
+#	wmctrl -s 5 && conky -c "/path_to/conky/name-of-the.conky"
+#fi
+
+if pgrep -f "conky -c $HOME/conky-BL/bl-left.conky"
+then
+	pkill -xf "conky -c $HOME/conky-BL/bl-left.conky"
+else
+	conky -c $HOME/conky-BL/bl-left.conky
+fi

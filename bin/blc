@@ -1,0 +1,57 @@
+#!/bin/sh
+# License GPL
+# by rodofr - Voyager Live
+# http://ubuntuforums.org/showthread.php?t=1330313
+# now dead and gone --- or --- here - not sure
+# http://linux.voyage.hk/
+# Tue 17 Feb 2015 - Looks like a Debian jessie version coming
+# http://voyagerlive.org/index.php/live-voyager-8-debian-jessie/
+
+# Modified for BunsenLab Conky
+## click to start, click to stop
+## Original script by: GrouchyGaijin
+##    to start stop a specific conky
+## This idea by: Stinkeye - Jan 2013
+## With another tweak by: arclance
+## Final tweak by: Sector11 - added wmctrl
+
+#if pgrep -f "conky -c /media/5/Conky/S11_all-text.conky"
+#then
+#	pkill -xf "conky -c /media/5/Conky/S11_all-text.conky"
+#else
+#	wmctrl -s 5 && conky -c "/media/5/Conky/S11_all-text.conky"
+#fi
+#
+
+	# Display the action selector
+	# Replace yad | zenity for which ever you use
+	RET=`zenity --list --title "Bunsen Labs Conky" --checklist --width=280 --height=325 \
+		--column "Select" --column "Conky to Start | Stop" \
+		FALSE	"Top One Liner" \
+		FALSE	"Right Conky" \
+		FALSE	"Left Conky" \
+		FALSE	"Right Image" \
+		FALSE	"Left Image" \
+		FALSE	"Kill-All"`
+
+	if echo "$RET" | grep "Top One Liner"; then
+		exec $HOME/conky-BL/scripts/ssc-top &
+	fi
+	if echo "$RET" | grep "Right Conky"; then
+		exec $HOME/conky-BL/scripts/ssc-right &
+	fi
+	if echo "$RET" | grep "Left Conky"; then
+		exec $HOME/conky-BL/scripts/ssc-left &
+	fi
+	if echo "$RET" | grep "Right Image"; then
+		exec $HOME/conky-BL/scripts/ssc-right-i &
+	fi
+	if echo "$RET" | grep "Left Image"; then
+		exec $HOME/conky-BL/scripts/ssc-left-i &
+	fi
+	if echo "$RET" | grep "Kill-All"; then
+		exec killall conky &
+	if [ $? -eq 1 ];then exit; fi; fi
+
+# Finish
+fi
