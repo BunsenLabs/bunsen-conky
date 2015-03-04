@@ -40,14 +40,15 @@ minimum_size 200 0  # w|h
 maximum_width 200
 
 gap_x 10		### left &right
-gap_y 10		### up & down
+gap_y 60		### up & down
 
 alignment tr
 ####################################################  End Window Settings  ###
 ###  Font Settings  ##########################################################
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
-xftfont Liberation Mono:bold:size=9
+#xftfont Monofur:bold:size=11
+xftfont Liberation Sans:size=11
 
 
 # Alpha of Xft font. Must be a value at or between 1 and 0 ###
@@ -59,12 +60,12 @@ uppercase no
 ######################################################  End Font Settings  ###
 ###  Color Settings  #########################################################
 draw_shades yes
-default_shade_color black
+default_shade_color 000000
 
 draw_outline no # amplifies text if yes
-default_outline_color black
+default_outline_color 000000
 
-default_color DCDCDC # Gainsboro
+default_color C0C0C0 # Silver
 color0 B0E0E6 # PowderBlue
 color1 778899 # LightSlateGray
 color2 D8BFD8 # Thistle
@@ -134,38 +135,38 @@ double_buffer yes
 update_interval 1
 
 TEXT
-${alignc}${time %X}
-${goto 35}${color0}SU MO ${color5}${time %b %Y}${color0} FR SA
-${goto 35}${color1}${execpi 7200 LAR=`date +%-d`; ncal -bh | sed '2d' | sed -e '1d' -e 's/\<'$LAR'\>/${color5}&${color1}/' | sed ':a;N;$!ba;s/\n/\n${goto 35}/g'}${color}
+${font Liberation Mono:bold:size=10}${alignc}${time %X}
+${goto 27}${color0}SU MO ${color5}${time %b %Y}${color0} FR SA
+${goto 27}${color1}${execpi 7200 LAR=`date +%-d`; ncal -bh | sed '2d' | sed -e '1d' -e 's/\<'$LAR'\>/${color5}&${color1}/' | sed ':a;N;$!ba;s/\n/\n${goto 27}/g'}${color}${font}
 ${alignc}S Y S T E M    I N F O
 ${hr}
-Host:${alignr 5}${nodename}
-Uptime:${alignr 5}${uptime}
+Host:${alignr}${nodename}
+Uptime:${alignr}${uptime}
 
-${goto 60}Used${alignr 5}Size
-Root${goto 60}${fs_used /}${alignr 5}${fs_size /}
-Home${goto 60}${fs_used /home}${alignr 5}${fs_size /home}
+${goto 60}Used${alignr}Size
+Root${goto 60}${fs_used /}${alignr}${fs_size /}
+Home${goto 60}${fs_used /home}${alignr}${fs_size /home}
 
-${goto 60}M E M${alignr 5}MAX
-RAM${goto 60}${mem}${alignr 5}${memmax}
-Swap${goto 60}${swap}${alignr 5}${swapmax}
+${goto 60}M E M${alignr}MAX
+RAM${goto 60}${mem}${alignr}${memmax}
+Swap${goto 60}${swap}${alignr}${swapmax}
 
-${goto 60}Used${alignr 5}GHz
-CPU:${goto 60}${cpu cpu0}%${alignr 5}${freq_g}
+${goto 60}Used${alignr}GHz
+CPU:${goto 60}${cpu cpu0}%${alignr}${freq_g}
 
 ${alignc}S H O R T C U T    K E Y S
 ${hr}
-[Alt] + F2${alignr 5} Run Dialog
-[Alt] + F3${alignr 5} Alt Menu
-[S] + Space${alignr 5} Main Menu
-[S] + Tab${alignr 5} Client Menu
-[S] + t${alignr 5} Terminal
-[S] + f${alignr 5} File Manager
-[S] + e${alignr 5} Editor
-[S] + m${alignr 5} Media Player
-[S] + w${alignr 5} Web Browser
-[S] + h${alignr 5} Task Manager
-[S] + l${alignr 5} Lock Screen
-[S] + v${alignr 5} Volume Control
-[S] + x${alignr 5} Logout
-{PrtSc}${alignr 5} Screenshot
+[Alt] + F2${alignr}Run Dialog
+[Alt] + F3${alignr}Alt Menu
+[S] + Space${alignr}Main Menu
+[S] + Tab${alignr}Client Menu
+[S] + t${alignr}Terminal
+[S] + f${alignr}File Manager
+[S] + e${alignr}Editor
+[S] + m${alignr}Media Player
+[S] + w${alignr}Web Browser
+[S] + h${alignr}Task Manager
+[S] + l${alignr}Lock Screen
+[S] + v${alignr}Volume Control
+[S] + x${alignr}Logout
+{PrtSc}${alignr}Screenshot
