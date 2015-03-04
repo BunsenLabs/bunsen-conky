@@ -142,7 +142,7 @@ ${else}${color9}${fs_used_perc /home}${color}${endif}${endif}% \
 of ${fs_size /home}\
 ${goto 320}CPU ${if_match ${cpu cpu0} < 10}  ${cpu cpu0}\
 ${else}${if_match ${cpu cpu0} < 100} ${cpu cpu0}\
-${else}${color9}${cpu cpu0}${color}${endif}${endif}% @ ${platform f71882fg.2560 temp 1}°\
+${else}${color9}${cpu cpu0}${color}${endif}${endif}% @ ${freq_g}Ghz\
 ${goto 460}RAM ${if_match ${memperc} < 10}  ${memperc}\
 ${else}${if_match ${memperc} < 100} ${memperc}\
 ${else}${color9}${memperc}${color}${endif}${endif}% of ${memmax}\
