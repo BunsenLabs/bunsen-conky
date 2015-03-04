@@ -9,7 +9,7 @@
 
 # Modified for BunsenLab Conky
 ## click to start, click to stop
-## Original script by: GrouchyGaijin
+## Original pkill line by: GrouchyGaijin
 ##    to start stop a specific conky
 ## This idea by: Stinkeye - Jan 2013
 ## With another tweak by: arclance
@@ -27,28 +27,30 @@
 	# Replace yad | zenity for which ever you use
 	RET=`zenity --list --title "Bunsen Labs Conky" --checklist --width=280 --height=325 \
 		--column "Select" --column "Conky to Start | Stop" \
-		FALSE	"Top One Liner" \
-		FALSE	"Right Conky" \
-		FALSE	"Left Conky" \
-		FALSE	"Right Image" \
-		FALSE	"Left Image" \
+		FALSE	"BL One Liner" \
+		FALSE	"BL Right" \
+		FALSE	"BL Left" \
+		FALSE	"CB Right" \
+		FALSE	"CB Left" \
+		FALSE	"= = = =" \
 		FALSE	"Kill-All"`
 
-	if echo "$RET" | grep "Top One Liner"; then
-		exec $HOME/conky-BL/scripts/ssc-top &
+	if echo "$RET" | grep "BL One Liner"; then
+		exec $HOME/conky-BL/scripts/ssc-bl-Top &
 	fi
-	if echo "$RET" | grep "Right Conky"; then
-		exec $HOME/conky-BL/scripts/ssc-right &
+	if echo "$RET" | grep "BL Right"; then
+		exec $HOME/conky-BL/scripts/ssc-bl-Rgt &
 	fi
-	if echo "$RET" | grep "Left Conky"; then
-		exec $HOME/conky-BL/scripts/ssc-left &
+	if echo "$RET" | grep "BL Left"; then
+		exec $HOME/conky-BL/scripts/ssc-bl-Lft &
 	fi
-	if echo "$RET" | grep "Right Image"; then
-		exec $HOME/conky-BL/scripts/ssc-right-i &
+	if echo "$RET" | grep "CB Right"; then
+		exec $HOME/conky-BL/scripts/ssc-CB-Rgt &
 	fi
-	if echo "$RET" | grep "Left Image"; then
-		exec $HOME/conky-BL/scripts/ssc-left-i &
+	if echo "$RET" | grep "CB Left"; then
+		exec $HOME/conky-BL/scripts/ssc-CB-Lft &
 	fi
+	echo "$RET" | grep "= = = ="; then
 	if echo "$RET" | grep "Kill-All"; then
 		exec killall conky &
 	if [ $? -eq 1 ];then exit; fi; fi
