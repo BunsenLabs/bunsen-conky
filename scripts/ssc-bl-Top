@@ -9,7 +9,7 @@
 ## to start a connky on a specific desktop
 ## remove "sticky" from own_window_hints
 
-## This incarnation created for Bunsen Labs Linux
+## This incarnation created for Bunsen Labs
 ## Feb 2015
 
 #if pgrep -f "conky -c /path_to/conky/name-of-the.conky"
