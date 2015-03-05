@@ -4,11 +4,13 @@
 # For all command available below text check:
 # http://conky.sourceforge.net/variables.html
 
-# NOTE: You can add other commands ewith the "exec" options
+# NOTE: You can add other commands with the "exec" options
 # and LUA
 
 # Bunsen Labs Conky help threads
 # http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+
+# beta tested by: smacz
 
 # Enjoy! :)
 
@@ -19,7 +21,7 @@
 own_window yes
 own_window_type normal
 own_window_transparent yes
-own_window_hints undecorated,below,skip_taskbar,skip_pager
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
 own_window_colour 000000
 own_window_class Conky
 own_window_title Bunsen Labs Top Conky

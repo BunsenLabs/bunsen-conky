@@ -1,16 +1,19 @@
-# conky configuration
+# For commands above TEXT check:
+# http://conky.sourceforge.net/config_settings.html
 #
-# The list of variables has been removed from this file in favour
-# of keeping the documentation more maintainable.
-# Check http://conky.sf.net for an up-to-date-list.
-#
-# For ideas about how to modify conky, please see:
-# http://crunchbanglinux.org/forums/topic/59/my-conky-config/
-#
-# For help with conky, please see:
-# http://crunchbanglinux.org/forums/topic/2047/conky-help/
-#
+# For all command available below text check:
+# http://conky.sourceforge.net/variables.html
+
+# NOTE: You can add other commands with the "exec" options
+# and LUA
+
+# Bunsen Labs Conky help threads
+# http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+
+# beta tested by: smacz
+
 # Enjoy! :)
+
 # pkill -xf "conky -c $HOME/conky-BL/conkyrc_cb_orig" &
 ##############################################
 # Settings
@@ -25,7 +28,7 @@ own_window yes
 own_window_transparent yes
 own_window_type normal #desktop
 #own_window_argb_visual yes
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
 double_buffer yes
 minimum_size 200 200
 maximum_width 240
