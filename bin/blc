@@ -54,6 +54,3 @@
 	if echo "$RET" | grep "Kill-All"; then
 		exec killall conky &
 	if [ $? -eq 1 ];then exit; fi; fi
-
-# Finish
-fi
