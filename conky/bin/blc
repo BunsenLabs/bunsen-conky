@@ -1,0 +1,68 @@
+#!/bin/sh
+# License GPL
+# by rodofr - Voyager Live
+# http://ubuntuforums.org/showthread.php?t=1330313
+# now dead and gone --- or --- here - not sure
+# http://linux.voyage.hk/
+# Tue 17 Feb 2015 - Looks like a Debian jessie version coming
+# http://voyagerlive.org/index.php/live-voyager-8-debian-jessie/
+
+# Modified for BunsenLab Conky
+## click to start, click to stop
+## Original pkill line by: GrouchyGaijin
+##    to start stop a specific conky
+## This idea by: Stinkeye - Jan 2013
+## With another tweak by: arclance
+## Final tweak by: Sector11 - added wmctrl
+
+#if pgrep -f "conky -c /media/5/Conky/S11_all-text.conky"
+#then
+#	pkill -xf "conky -c /media/5/Conky/S11_all-text.conky"
+#else
+#	wmctrl -s 5 && conky -c "/media/5/Conky/S11_all-text.conky"
+#fi
+#
+
+	# Display the action selector
+	# Replace yad | zenity for which ever you use
+	RET=`zenity --list --title "Bunsen Labs Conky" --checklist --width=280 --height=365 \
+		--column "Select" --column "Conky to Start | Stop" \
+		FALSE	"BL Top 1 Line" \
+		FALSE	"BL TR Lua" \
+		FALSE	"BL TopRight" \
+		FALSE	"BL TopLeft" \
+		FALSE	"CB TopRight" \
+		FALSE	"CB TopLeft" \
+		FALSE	"BL TR S11" \
+		FALSE	"CB Classic" \
+		FALSE	"= = = =" \
+		FALSE	"Kill-All"`
+
+	if echo "$RET" | grep "BL Top 1 Line"; then
+		exec $HOME/.config/conky/scripts/ssc-bl-TopMid &
+	fi
+	if echo "$RET" | grep "BL TR Lua"; then
+		exec $HOME/.config/conky/scripts/ssc-bl-TR-lua &
+	fi
+	if echo "$RET" | grep "BL TopRight"; then
+		exec $HOME/.config/conky/scripts/ssc-bl-TopRight &
+	fi
+	if echo "$RET" | grep "BL TopLeft"; then
+		exec $HOME/.config/conky/scripts/ssc-bl-TopLeft &
+	fi
+	if echo "$RET" | grep "CB TopRight"; then
+		exec $HOME/.config/conky/scripts/ssc-CB-TR &
+	fi
+	if echo "$RET" | grep "CB TopLeft"; then
+		exec $HOME/.config/conky/scripts/ssc-CB-TL &
+	fi
+	if echo "$RET" | grep "BL TR S11"; then
+		exec $HOME/.config/conky/scripts/ssc-BL-S11 &
+	fi
+	if echo "$RET" | grep "CB Classic"; then
+		exec $HOME/.config/conky/scripts/ssc-CB-Classic &
+	fi
+	echo "$RET" | grep "= = = ="; then
+	if echo "$RET" | grep "Kill-All"; then
+		exec killall conky &
+	if [ $? -eq 1 ];then exit; fi; fi
