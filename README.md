@@ -12,17 +12,19 @@ Installation
 /.config/conky
  bl-left.conkyrc
  bl-right-lua.conkyrc
- bl-right-S11.conkyrc
+ bl-right-S11.conkyrc (*)
  bl-right.conkyrc
  bl-top.conkyrc
  CB-TL.conkyrc
  CB-TR.conkyrc
  classic.conkyrc
  conkyrc_cb
- session.log
+
+(*) Configured for my system as an example
 
 /.config/conky/bin
  blc
+ edit
 
 /.config/conky/LUA
  draw-bg.lua
@@ -39,22 +41,24 @@ Installation
 
 In OpenBox
 
-Lable: BL Conky
+Lable: Conky S|S
 Execute: ~/.config/conky/bin/blc
-
-OR:
-Create and make sure ~/bin is in your $PATH
-Then copy ~/.config/conky/bin/blc to ~/bin
-
-Now it will work in a terminal or an OpenBox entry
-Label:  BL Conkys
-Execute: blc
-
-in Ob Menu or a terminal: blc - open the zenity box
  - click to start, click to stop a conky
  - you can click a running conky and a non running conky
  - - running conky will shut down
  - - non-running conky will start
+
+Lable: Conky Edit
+Execute: ~/.config/conky/bin/edit
+ - click on one or more conkys to edit in geany
+
+OR:
+Create and make sure ~/bin is in your $PATH
+Then copy
+ ~/.config/conky/bin/blc to ~/bin
+ ~/.config/conky/bin/edit to ~/edit
+
+Now both will work in a terminal or an OpenBox entry
 
 Bugs
 ----
