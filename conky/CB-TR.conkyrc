@@ -18,7 +18,7 @@
 ###  Begin Window Settings  ##################################################
 own_window yes
 own_window_type normal
-own_window_transparent yes
+own_window_transparent yes ## Use no if using ARGB see below
 own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
 own_window_colour 000000
 own_window_class Conky
@@ -26,8 +26,6 @@ own_window_title Bunsen Labs CB Right Conky
 
 ### ARGB can be used for real transparency
 ### NOTE that a composite manager is required for real transparency.
-### This option will not work as desired (in most cases) in conjunction with
-### own_window_type normal
 # own_window_argb_visual yes # Options: yes or no
 
 ### When ARGB visuals are enabled, this use this to modify the alpha value
@@ -39,8 +37,8 @@ own_window_title Bunsen Labs CB Right Conky
 minimum_size 200 0  # w|h
 maximum_width 200
 
-gap_x 10		### left &right
-gap_y 60		### up & down
+gap_x 10		### l|r
+gap_y 60		### u|d
 
 alignment tr
 ####################################################  End Window Settings  ###
@@ -48,7 +46,6 @@ alignment tr
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
 xftfont Liberation Sans:size=11
-#xftfont monofur:bold:size=12
 
 # Alpha of Xft font. Must be a value at or between 1 and 0
 xftalpha 1
@@ -108,8 +105,7 @@ no_buffers yes
 # change GiB to G and MiB to M
 short_units yes
 
-# Like it says, ot pads the decimals on % values
-# doesn't seem to work since v1.7.1
+# Like it says, it pads the decimals on % values
 pad_percents 2
 
 # Imlib2 image cache size, in bytes. Default 4MiB Increase this value if you use
@@ -130,11 +126,6 @@ double_buffer yes
 # temperature_unit Fahrenheit
 
 ##############################################  End Miscellaneous Section  ###
-# default_color d8d8d8 #jr
-# default_shade_color 000000 #jr
-# default_outline_color d9d7d6 #jr for a variety of wallpapers,
-# but now I use a conky popup when needed with much harder colours
-# (basically black and white) for immediate visibility.
 
 update_interval 1
 TEXT

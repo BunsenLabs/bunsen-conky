@@ -1,7 +1,7 @@
 #!/bin/sh
 	# Display the action selector
 	# Replace zenity | yad for which ever you use
-	RET=`zenity --list --title "Bunsen Labs Conky" --checklist --width=280 --height=365 \
+	RET=`zenity --list --title "BunsenLabs Conky" --checklist --width=280 --height=365 \
 		--column "Select" --column "Conkys to Edit" \
 		FALSE	"BL Top 1 Line" \
 		FALSE	"BL TR Lua" \

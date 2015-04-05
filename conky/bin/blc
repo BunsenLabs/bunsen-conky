@@ -25,7 +25,7 @@
 
 	# Display the action selector
 	# Replace yad | zenity for which ever you use
-	RET=`zenity --list --title "Bunsen Labs Conky" --checklist --width=280 --height=365 \
+	RET=`zenity --list --title "BunsenLabs Conky" --checklist --width=280 --height=365 \
 		--column "Select" --column "Conky to Start | Stop" \
 		FALSE	"BL Top 1 Line" \
 		FALSE	"BL TR Lua" \
