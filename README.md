@@ -1,6 +1,9 @@
 Conky
 ===============================
+N O T E:  BETA TEST
 
+This new script is in BETA test. Please help test it
+===============================
 This repository holds Bunsen Labs' Conky configuration files and related scripts.
 
 Installation
@@ -23,7 +26,7 @@ Installation
  conky/conkyrc_cb
 
 /.config/conky/bin
- blcsz
+ bl-conkyzen
 
 /.config/conky/LUA
  draw-bg.lua
@@ -31,14 +34,14 @@ Installation
 In OpenBox
 
 Lable: Conky S|S (your option)
-Execute: ~/.config/conky/bin/blcsz
+Execute: ~/.config/conky/bin/bl-conkyzen
 
 OR:
 Create and make sure ~/bin is in your $PATH
 Then copy
- ~/.config/conky/bin/blcsz to ~/bin
+ ~/.config/conky/bin/bl-conkyzen to ~/bin
 Lable: Conky S|S (your option)
-Execute: ~/bin/blcsz
+Execute: ~/bin/bl-conkyzen
 
 Now both will work in a terminal or as an OpenBox entry
 
