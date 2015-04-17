@@ -76,3 +76,15 @@ Super+l$alignr Lock Screen
 Super+v$alignr Volume Control
 Super+x$alignr Logout
 PrtSc$alignr Screenshot
+Hello
+
+
+${if_up wlan0}
+
+N E T W O R K
+${hr}
+IP:$alignr${addr wlan0}
+Gateway:$alignr$gw_ip
+Current Rate:$alignr${upspeed wlan0}/${downspeed wlan0}
+${endif}
+ Bob

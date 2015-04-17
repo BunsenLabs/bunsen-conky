@@ -1,21 +1,17 @@
 # For commands above TEXT check:
 # http://conky.sourceforge.net/config_settings.html
 #
-# For all command available below text check:
+# For commands available below TEXT check:
 # http://conky.sourceforge.net/variables.html
-
-# NOTE: You can add other commands with the "exec" options
-# and LUA
 
 # Bunsen Labs Conky help threads
 # http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
 
 # beta tested by: smacz
-
 # Enjoy! :)
 
-# pkill -xf "conky -c $HOME/.config/conky/bl-top_l.conkyrc" &
-###  Begin Window Settings  ##################################################
+# pkill -xf "conky -c $HOME/.config/conky/BL-Top.conkyrc" &
+###  Begin Window Settings  #####################
 own_window yes
 own_window_type normal
 own_window_transparent yes
@@ -23,46 +19,51 @@ own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
 own_window_colour 000000
 own_window_class Conky
 own_window_title Bunsen Labs Top Conky
-
 ### ARGB can be used for real transparency
 ### NOTE that a composite manager is required for real transparency.
+### This option will not work as desired (in most cases) in conjunction with
+### own_window_type normal
 # own_window_argb_visual yes # Options: yes or no
 
 ### When ARGB visuals are enabled, this use this to modify the alpha value
 ### Use: own_window_type normal
 ### Use: own_window_transparent no
 ### Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
-# own_window_argb_value 150
+# own_window_argb_value 50
 
-minimum_size 870 0  # w|h
+minimum_size 870 0  ### width | height
 maximum_width 870
 
-gap_x 0		### l|r
-gap_y 10		### u|d
+gap_x 0		### left | right
+gap_y 10	### up | down
 
 alignment tm
-####################################################  End Window Settings  ###
-###  Font Settings  ##########################################################
+#######################  End Window Settings  ###
+###  Font Settings  #############################
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
+## Requires mono font for spacing reasons
 xftfont Liberation Mono:bold:size=9
+
 
 # Alpha of Xft font. Must be a value at or between 1 and 0 ###
 xftalpha 1
-
 # Force UTF8? requires XFT ###
 override_utf8_locale yes
 
 uppercase no
-######################################################  End Font Settings  ###
-###  Color Settings  #########################################################
-draw_shades yes
+#########################  End Font Settings  ###
+###  Colour Settings  ###########################
+draw_shades no #yes
 default_shade_color black
 
 draw_outline no # amplifies text if yes
 default_outline_color black
 
-default_color DCDCDC # Gainsboro
+#default_color 656667 # Waldorf original colour
+#default_color 7a7a7a # Flame  & Bunsen Grey
+#default_color 929292 # Labs Grey
+default_color C0C0C0 # Silver
 color0 B0E0E6 # PowderBlue
 color1 778899 # LightSlateGray
 color2 D8BFD8 # Thistle
@@ -73,8 +74,8 @@ color6 00BFFF # DeepSkyBlue
 color7 5F9EA0 # CadetBlue
 color8 BDB76B # DarkKhaki
 color9 CD5C5C # IndianRed
-#####################################################  End Color Settings  ###
-###  Borders Section  ########################################################
+#######################  End Colour Settings  ###
+###  Borders Section  ###########################
 draw_borders no
 # Stippled borders?
 stippled_borders 5
@@ -86,8 +87,8 @@ border_width 2
 # graph borders
 draw_graph_borders yes #no
 #default_graph_size 15 40
-#####################################################  End Borders Secton  ###
-###  Miscellaneous Section  ##################################################
+########################  End Borders Secton  ###
+###  Miscellaneous Section  #####################
 # Boolean value, if true, Conky will be forked to background when started.
 background yes
 
@@ -126,7 +127,7 @@ double_buffer yes
 # Desired output unit of all objects displaying a temperature. Parameters are
 # either "fahrenheit" or "celsius". The default unit is degree Celsius.
 # temperature_unit Fahrenheit
-##############################################  End Miscellaneous Section  ###
+#################  End Miscellaneous Section  ###
 
 update_interval 1
 
@@ -141,7 +142,7 @@ ${else}${color9}${fs_used_perc /home}${color}${endif}${endif}% \
 of ${fs_size /home}\
 ${goto 320}CPU ${if_match ${cpu cpu0} < 10}  ${cpu cpu0}\
 ${else}${if_match ${cpu cpu0} < 100} ${cpu cpu0}\
-bl-top.conky${else}${color9}${cpu cpu0}${color}${endif}${endif}% @ ${freq_g}Ghz\
+${else}${color9}${cpu cpu0}${color}${endif}${endif}% @ ${freq_g}Ghz\
 ${goto 460}RAM ${if_match ${memperc} < 10}  ${memperc}\
 ${else}${if_match ${memperc} < 100} ${memperc}\
 ${else}${color9}${memperc}${color}${endif}${endif}% of ${memmax}\

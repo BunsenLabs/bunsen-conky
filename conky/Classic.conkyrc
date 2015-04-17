@@ -1,26 +1,22 @@
 # For commands above TEXT check:
 # http://conky.sourceforge.net/config_settings.html
 #
-# For all command available below text check:
+# For commands available below TEXT check:
 # http://conky.sourceforge.net/variables.html
-
-# NOTE: You can add other commands with the "exec" options
-# and LUA
 
 # Bunsen Labs Conky help threads
 # http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
 
 # beta tested by: smacz
-
 # Enjoy! :)
 
-# pkill -xf "conky -c $HOME/.config/conky//classic.conkyrc" &
+# pkill -xf "conky -c $HOME/.config/conky/Classic.conkyrc" &
 ##############################################
 # Settings
 ##############################################
 background yes
 use_xft yes
-xftfont Liberation Sans:size=9
+xftfont Liberation Sans:size=11
 xftalpha 1
 update_interval 1.0
 total_run_times 0
@@ -29,20 +25,23 @@ own_window_transparent yes
 own_window_type normal #desktop
 own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
 own_window_class Conky
-own_window_title Bunsen Labs Default Right Conky
+own_window_title Bunsen Labs Classic CrunchBang Conky
 double_buffer yes
 minimum_size 200 200
 maximum_width 240
 draw_shades no
-draw_outline no
+default_shade_color 000000
 draw_borders no
 draw_graph_borders no
-default_color 656667
-default_shade_color 000000
+default_color 656667 # Waldorf original colour
+#default_color 7a7a7a # Flame  & Bunsen Grey
+#default_color 929292 # Labs Grey
+#default_color C0C0C0 # Silver
+draw_outline no
 default_outline_color 828282
 alignment top_right
-gap_x 12
-gap_y 56
+gap_x 20
+gap_y 20
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
