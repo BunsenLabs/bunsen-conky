@@ -7,7 +7,7 @@
 ########################################################################
 #
 #   Conkys must be in $CONKYPATH
-#   The name must end in "conky" or "conkyrc"
+#   The name must end with an extensuio of ".conky" or ".conkyrc"
 #
 #   When the dialog opens, any running conkys will be checkmarked.
 #
