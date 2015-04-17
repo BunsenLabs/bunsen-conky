@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-#   Conky selection and switcher script
+#   BunsenLabs Conky selection and switcher script
 #
 #   Written by <damo> April 2015
 #
@@ -19,9 +19,6 @@
 ########################################################################
 
 CONKYPATH="$HOME/.config/conky"
-#CONKYPATH="/media/5/Conky"
-#CONKYPATH="/media/5/conky"
-#CONKYPATH="/media/5/S11_conky"
 TEMPFILE="tmp/conky-tmp"
 
 conkyRunning(){
