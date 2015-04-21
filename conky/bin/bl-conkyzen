@@ -22,6 +22,10 @@
 #   following line to autostart:
 #                    (sleep 2s && bl-conky-session) &
 #
+#   Different saved-session files can be used by running the script with:
+#
+#           bl-conkyzen -f /path/to/sessionfile &
+#
 ########################################################################
 
 CONKYPATH="$HOME/.conky"
@@ -29,7 +33,6 @@ TEMPFILE="$CONKYPATH/conky-tmp"
 SESSIONFILE="$CONKYPATH/conky-session.txt"
 
 ########## FUNCTIONS ###################################################
-
 conkyRunning(){    # find running conkys
     > $TEMPFILE # make blank tempfile, to save running conky paths
     if [ "$(pidof conky)" ];then
@@ -67,6 +70,17 @@ done
 }
 
 ######## END FUNCTIONS #################################################
+
+# get args passed to script (session can be saved to a different file)
+for arg in "$@";do
+    case "$arg" in
+        -f|-F ) SESSIONFILE="$2"    # sessionfile has been specified
+                ;; 
+        *     ) SESSIONFILE="$SESSIONFILE" # sessionfile is default
+                ;;
+    esac
+done
+
 # get conky directories in .conky, add to array
 conkyRunning
 findConky
@@ -120,6 +134,3 @@ fi
 rm -r $TEMPFILE
 
 exit 0
-
-
-
