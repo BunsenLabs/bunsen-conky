@@ -33,17 +33,27 @@ Installation
 
 In OpenBox
 
-Lable: Conky S|S (your option)
+Label: Conky S|S (your option)
 Execute: ~/.config/conky/bin/bl-conkyzen
 
 OR:
 Create and make sure ~/bin is in your $PATH
 Then copy
  ~/.config/conky/bin/bl-conkyzen to ~/bin
-Lable: Conky S|S (your option)
+Label: Conky S|S (your option)
 Execute: ~/bin/bl-conkyzen
 
 Now both will work in a terminal or as an OpenBox entry
+
+bl-conkyzen saves the running conkys to a default saved-session file. Different 
+saved-session files can specified with:
+
+    bl-conkyzen -f /path/to/session-file
+    
+The default saved-session can be run with bl-conky-session, or different
+saved-session files with
+
+    bl-conky-session /path/to/file1 /path/to/file2 etc
 
 Bugs
 ----
