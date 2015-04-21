@@ -29,8 +29,9 @@
 ########################################################################
 
 CONKYPATH="$HOME/.conky"
-TEMPFILE="$CONKYPATH/conky-tmp"
-SESSIONFILE="$CONKYPATH/conky-session.txt"
+TEMPFILE="$CONKYPATH/conky-temp"
+SESSIONFILE="$CONKYPATH/conky-session"
+SESSIONS="$CONKYPATH/saved-sessions"    # to be used by a pipemenu
 
 ########## FUNCTIONS ###################################################
 conkyRunning(){    # find running conkys
@@ -69,6 +70,17 @@ for x in $(find $CONKYPATH -type f );do
 done
 }
 
+writeSessions(){    # save a new sessionfile name for use by a menu
+    fullpath=$(readlink -f "$1")    # ensure full filepath is used
+    if ! [ -f "$SESSIONS" ];then
+        > "$SESSIONS"
+    fi
+    if grep -qx "$fullpath" "$SESSIONS";then # session was previously saved
+        return
+    else
+        echo "$fullpath" >> "$SESSIONS"
+    fi
+}
 ######## END FUNCTIONS #################################################
 
 # get args passed to script (session can be saved to a different file)
@@ -130,7 +142,7 @@ else
         done
     done 
 fi
-
+writeSessions "$SESSIONFILE"    # if sessionfile is new, write name to saved-sessions
 rm -r $TEMPFILE
 
 exit 0
