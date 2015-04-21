@@ -92,7 +92,7 @@ for ((j=0; j<${#conkysArr[*]}; j++));do
 done
 
 ## Populate zenity dialog from array, get return value(s)
-RET=$(zenity --list --text "BunsenLabs Conky Chooser"\
+RET=$(zenity --list --text "BunsenLabs Conky Chooser\n\nSession will be saved to\n $SESSIONFILE"\
  --checklist --width=400 --height=500 \
     --column "Select" --column "Conky Name" --separator=":"\
     $msg)
