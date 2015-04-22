@@ -2,13 +2,13 @@
 #
 #   BunsenLabs Conky selection and switcher script
 #
-#   Written by <damo> April 2015
+#   Written by <damo>, April 2015
 #   Beta tested and stamped "zen" by <Sector11>
 #
 ########################################################################
 #
 #   Conkys must be in $CONKYPATH
-#   The name must end with an extensuio of ".conky" or ".conkyrc"
+#   The name must end with "conky" or "conkyrc"
 #
 #   When the dialog opens, any running conkys will be checkmarked.
 #
@@ -17,48 +17,69 @@
 #
 #   To stop a conky just uncheck it, and "OK"
 #
+#   Running conkys are saved to a session file, and can be run with
+#   the "bl-conky-session" script. To start them at login, add the
+#   following line to autostart:
+#                    (sleep 2s && bl-conky-session) &
+#
+#   Different saved-session files can be used by running the script with:
+#
+#           bl-conkyzen -f /path/to/sessionfile &
+#
 ########################################################################
 
 CONKYPATH="$HOME/.config/conky"
-TEMPFILE="tmp/conky-tmp"
+TEMPFILE="$CONKYPATH/conky-tmp"
+SESSIONFILE="$CONKYPATH/conky-session.txt"
 
-conkyRunning(){
-    > $TEMPFILE #make blank tempfile
+########## FUNCTIONS ###################################################
+conkyRunning(){    # find running conkys
+    > $TEMPFILE # make blank tempfile, to save running conky paths
     if [ "$(pidof conky)" ];then
-        ps aux | grep conky[rc] |  awk  '{print $2" "$NF}' >> tmp/conky-tmp
+        ps aux | grep [c]onky" -c" |  awk  '{print $NF}' >> $TEMPFILE
     fi
 }
 
 fillArrays(){
     num="$1"
     conkysPath[$num]="$2"   # full filepath to conky
-    conkysArr[$num]="$3"    # displayed name, either "<name>conky(rc)" or containing dir if just "conkyrc"
-    if grep -q "$2" "$TEMPFILE";then # if conky is running (read from tempfile)
-        checkArr[$num]="TRUE"
+    conkysArr[$num]="$3"    # displayed name: "directory/*conky(rc)"
+    if grep -qx "$2" "$TEMPFILE";then # if conky is running (read from tempfile)
+        checkArr[$num]="TRUE"       # make checkmark in dialog
     else
         checkArr[$num]="FALSE"
     fi
 }
 
 findConky(){
-# search dirs for conkys files - looking for .conky or (.)conkyrc in the name
-# if "*.conky(rc)" then display it
-# if just "conkyrc" then it is the only one in the dir, so display the
-# containing dir so the name is more descriptive
+# search dirs for conkys files - looking for "conky" in the name
+# if "*conky(rc)" then display it
 
 num=0
-for x in `find $CONKYPATH -type f`
-    do
-        if [[ $x = *conkyrc ]] || [[ $x = *.conky ]];then
-            CONKY=$(echo $x | awk -F'/' '{print $NF}')
-            if [[ $CONKY = conkyrc ]];then
-                CONKY=$(echo $x | awk -F'/' '{print $(NF-1)}')
-            fi
-            fillArrays $num $x $CONKY
-            num=$(($num+1))
-        fi
-    done
+# find files in CONKYPATH with conky in the name
+for x in $(find $CONKYPATH -type f );do
+    f=$(basename $x)    # filename from filepath
+    if [[ $f = *conkyrc ]] || [[ $f = *conky ]];then
+        # filename ends with *conky or *conkyrc
+        # get directory/conkyname to display in list
+        CONKY=$( echo $x | awk -F"/" '{print $(NF-1)"/"$NF}')
+        fillArrays $num $x $CONKY
+        num=$(($num+1))
+    fi
+done
 }
+
+######## END FUNCTIONS #################################################
+
+# get args passed to script (session can be saved to a different file)
+for arg in "$@";do
+    case "$arg" in
+        -f|-F ) SESSIONFILE="$2"    # sessionfile has been specified
+                ;;
+        *     ) SESSIONFILE="$SESSIONFILE" # sessionfile is default
+                ;;
+    esac
+done
 
 # get conky directories in .conky, add to array
 conkyRunning
@@ -71,49 +92,45 @@ for ((j=0; j<${#conkysArr[*]}; j++));do
 done
 
 ## Populate zenity dialog from array, get return value(s)
-RET=`zenity --list --title "BunsenLabs Conky" --checklist --width=300 --height=500 \
+RET=$(zenity --list --title "BunsenLabs Conky Chooser" --text "Session will be saved to:\n\n$SESSIONFILE"\
+ --checklist --width=400 --height=500 \
     --column "Select" --column "Conky Name" --separator=":"\
-    $msg`
+    $msg)
 
-if [[ $? -eq 1 ]]; then # cancel button pressed
+if [[ $? == 1 ]]; then # cancel button pressed
     exit 0
-else    # loop through returned choices, add to array
+else
+    > $SESSIONFILE    # Create new session file
+    # loop through returned choices, add to array
     i=0
+    OIFS=$IFS   # save Internal Field Separator
     IFS=":"     # separator is ":" in returned choices
     for name in $RET; do
         retConky[$i]=$name
         i=$(($i+1))
     done
-    unset IFS;
+    IFS=$OIFS   # reset IFS back to default
 
     # kill all conkys
     if [ "$(pidof conky)" ];then
         killall conky
     fi
 
+    # Find the chosen conkys and start them
     for name in ${retConky[*]};do       # loop through checkmarked conky names
         for ((j=0; j<${#conkysPath[*]}; j++));do  # traverse through elements
-            for f in ${conkysPath[j]};do
-                conkyname=`basename $f`     # conky filename
-                conkypath=`dirname $f`      # conky filepath
-                DIR=`echo $f | awk -F"/" '{print $(NF-1)}'` # get directory containing the conky
-                # see if it matches the returned name
-                if [[ $conkyname == $name ]];then # it isn't just "conkyrc"
-                    fpath="$conkypath/$conkyname"
-                    conky -c "$fpath" & #start the conky
-#                    sleep 0.5s
-                elif [[ $conkyname == "conkyrc" ]];then
-                    if [[ $DIR == $name ]];then # the containing dir was used as a descriptive name
-                        fpath="$conkypath/$conkyname"
-                        conky -c "$fpath" & #start the conky
-#                        sleep 0.5s
-                    fi
+            for f in ${conkysPath[j]};do    # compare with choice from dialog
+                display=$( echo $f | awk -F"/" '{print $(NF-1)"/"$NF}')
+                if [[ $display = $name ]];then
+                    echo -e "conky -c $f & sleep 1s" >> $SESSIONFILE
+                    #start the conky (adjust the sleep time if required)
+                    conky -c "$f"; sleep 0.5s &
                 fi
             done
         done
     done
 fi
-# I left this in for debugging. It could be changed to "rm -r $TEMPFILE"
-conkyRunning    # update tempfile
 
-exit
+rm -r $TEMPFILE
+
+exit 0
