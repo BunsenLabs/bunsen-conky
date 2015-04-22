@@ -71,7 +71,9 @@ done
 }
 
 writeSessions(){    # save a new sessionfile name for use by a menu
+#    fullpath=$(readlink -f "$1")    # ensure full filepath is used
     fullpath=$(readlink -f "$1")    # ensure full filepath is used
+    SESSIONFILE="$fullpath"
     if ! [ -f "$SESSIONS" ];then
         > "$SESSIONS"
     fi
@@ -87,11 +89,13 @@ writeSessions(){    # save a new sessionfile name for use by a menu
 for arg in "$@";do
     case "$arg" in
         -f|-F ) SESSIONFILE="$2"    # sessionfile has been specified
+                writeSessions "$SESSIONFILE"    # if sessionfile is new, write name to saved-sessions
                 ;; 
         *     ) SESSIONFILE="$SESSIONFILE" # sessionfile is default
                 ;;
     esac
 done
+
 
 # get conky directories in .conky, add to array
 conkyRunning
@@ -142,7 +146,7 @@ else
         done
     done 
 fi
-writeSessions "$SESSIONFILE"    # if sessionfile is new, write name to saved-sessions
+
 rm -r $TEMPFILE
 
 exit 0
