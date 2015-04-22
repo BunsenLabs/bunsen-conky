@@ -5,13 +5,21 @@
 #   written by <damo> for BunsenLabs, April 2015
 #
 ########################################################################
+<<<<<<< HEAD
 CONKYPATH="$HOME/.config/conky"
+=======
+CONKYPATH="$HOME/.conky"
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
 SESSIONFILE="$CONKYPATH/conky-session.txt"
 USAGE=$(echo -e "\v  USAGE: with no command argument, the script uses the default"
     echo -e "\t conky session file '$SESSIONFILE'\v"
     echo -e "  To run other session files use:\v"
     echo -e "\t'bl-conky-session /path/to/file1 /path/to/file2 etc'\v")
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
 findArgs(){     # get command args (sessionfile paths)
     i=0
     for arg in "$@";do
@@ -35,7 +43,11 @@ if [ $# -eq 0 ];then    # if no args, then run default sessionfile
 elif [[ $1 = "-h" ]] || [[ $1 = "--help" ]];then
     echo "$USAGE"
     exit 0
+<<<<<<< HEAD
 else
+=======
+else 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
     findArgs $@    # get the sessionfile paths from the command args
 fi
 

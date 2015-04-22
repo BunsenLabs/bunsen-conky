@@ -2,7 +2,11 @@
 #
 #   BunsenLabs Conky selection and switcher script
 #
+<<<<<<< HEAD
 #   Written by <damo>, April 2015
+=======
+#   Written by <damo>, April 2015 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
 #   Beta tested and stamped "zen" by <Sector11>
 #
 ########################################################################
@@ -18,7 +22,11 @@
 #   To stop a conky just uncheck it, and "OK"
 #
 #   Running conkys are saved to a session file, and can be run with
+<<<<<<< HEAD
 #   the "bl-conky-session" script. To start them at login, add the
+=======
+#   the "bl-conky-session" script. To start them at login, add the 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
 #   following line to autostart:
 #                    (sleep 2s && bl-conky-session) &
 #
@@ -28,7 +36,11 @@
 #
 ########################################################################
 
+<<<<<<< HEAD
 CONKYPATH="$HOME/.config/conky"
+=======
+CONKYPATH="$HOME/.conky"
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
 TEMPFILE="$CONKYPATH/conky-tmp"
 SESSIONFILE="$CONKYPATH/conky-session.txt"
 
@@ -43,7 +55,11 @@ conkyRunning(){    # find running conkys
 fillArrays(){
     num="$1"
     conkysPath[$num]="$2"   # full filepath to conky
+<<<<<<< HEAD
     conkysArr[$num]="$3"    # displayed name: "directory/*conky(rc)"
+=======
+    conkysArr[$num]="$3"    # displayed name: "directory/*conky(rc)" 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
     if grep -qx "$2" "$TEMPFILE";then # if conky is running (read from tempfile)
         checkArr[$num]="TRUE"       # make checkmark in dialog
     else
@@ -57,14 +73,22 @@ findConky(){
 
 num=0
 # find files in CONKYPATH with conky in the name
+<<<<<<< HEAD
 for x in $(find $CONKYPATH -type f );do
+=======
+for x in $(find $CONKYPATH -type f );do 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
     f=$(basename $x)    # filename from filepath
     if [[ $f = *conkyrc ]] || [[ $f = *conky ]];then
         # filename ends with *conky or *conkyrc
         # get directory/conkyname to display in list
         CONKY=$( echo $x | awk -F"/" '{print $(NF-1)"/"$NF}')
         fillArrays $num $x $CONKY
+<<<<<<< HEAD
         num=$(($num+1))
+=======
+        num=$(($num+1)) 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
     fi
 done
 }
@@ -75,7 +99,11 @@ done
 for arg in "$@";do
     case "$arg" in
         -f|-F ) SESSIONFILE="$2"    # sessionfile has been specified
+<<<<<<< HEAD
                 ;;
+=======
+                ;; 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
         *     ) SESSIONFILE="$SESSIONFILE" # sessionfile is default
                 ;;
     esac
@@ -92,7 +120,11 @@ for ((j=0; j<${#conkysArr[*]}; j++));do
 done
 
 ## Populate zenity dialog from array, get return value(s)
+<<<<<<< HEAD
 RET=$(zenity --list --title "BunsenLabs Conky Chooser" --text "Session will be saved to:\n\n$SESSIONFILE"\
+=======
+RET=$(zenity --list --text "BunsenLabs Conky Chooser\n\nSession will be saved to\n $SESSIONFILE"\
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
  --checklist --width=400 --height=500 \
     --column "Select" --column "Conky Name" --separator=":"\
     $msg)
@@ -105,17 +137,25 @@ else
     i=0
     OIFS=$IFS   # save Internal Field Separator
     IFS=":"     # separator is ":" in returned choices
-    for name in $RET; do
+    for name in $RET; do 
         retConky[$i]=$name
         i=$(($i+1))
     done
     IFS=$OIFS   # reset IFS back to default
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
     # kill all conkys
     if [ "$(pidof conky)" ];then
         killall conky
     fi
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
     # Find the chosen conkys and start them
     for name in ${retConky[*]};do       # loop through checkmarked conky names
         for ((j=0; j<${#conkysPath[*]}; j++));do  # traverse through elements
@@ -124,11 +164,15 @@ else
                 if [[ $display = $name ]];then
                     echo -e "conky -c $f & sleep 1s" >> $SESSIONFILE
                     #start the conky (adjust the sleep time if required)
+<<<<<<< HEAD
                     conky -c "$f"; sleep 0.5s &
+=======
+                    conky -c "$f"; sleep 0.5s & 
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
                 fi
             done
         done
-    done
+    done 
 fi
 
 rm -r $TEMPFILE

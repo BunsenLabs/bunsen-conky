@@ -53,6 +53,7 @@ OR:
 Create and make sure ~/bin is in your $PATH
 Then copy
  ~/.config/conky/bin/bl-conkyzen to ~/bin
+<<<<<<< HEAD
 Label: Conky Chooser (your option)
 Execute: bl-conkyzen
 
@@ -67,6 +68,18 @@ saved-session files can specified with:
 
     bl-conkyzen -f /path/to/session-file
 
+=======
+Label: Conky S|S (your option)
+Execute: ~/bin/bl-conkyzen
+
+Now both will work in a terminal or as an OpenBox entry
+
+bl-conkyzen saves the running conkys to a default saved-session file. Different 
+saved-session files can specified with:
+
+    bl-conkyzen -f /path/to/session-file
+    
+>>>>>>> 7673579fd1a51d920322f78914fca2e7b390cae3
 The default saved-session can be run with bl-conky-session, or different
 saved-session files with
 
