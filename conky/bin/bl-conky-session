@@ -6,31 +6,64 @@
 #
 ########################################################################
 CONKYPATH="$HOME/.conky"
-SESSIONFILE="$CONKYPATH/conky-session.txt"
-USAGE=$(echo -e "\v  USAGE: with no command argument, the script uses the default"
-    echo -e "\t conky session file '$SESSIONFILE'\v"
-    echo -e "  To run other session files use:\v"
-    echo -e "\t'bl-conky-session /path/to/file1 /path/to/file2 etc'\v")
-    
-findArgs(){     # get command args (sessionfile paths)
+SESSIONFILE="$CONKYPATH/conky-session"
+USAGE=$(echo -e "\vUSAGE:\tbl-conky-session [OPTION(S)]...FILES"
+         echo -e "\n\tWith no command argument, the script uses the default"
+         echo -e "\t\"\$CONKYPATH/conky-session\" sessionfile"
+         echo -e "\vOPTIONS:\n\t--default\t: specify default sessionfile"
+         echo -e "\t--autostart\t: no \"kill conky\" option asked for"
+         echo -e "\tpath/to/sessionfile1  /path/to/sessionfile2 etc"
+         echo -e "\vEXAMPLES:"
+         echo -e "\tRun specified sessionfile at login:"
+         echo -e "\t\"bl-conky-session --autostart /path/to/sessionfile\""
+         echo -e "\v\tRun default sessionfile, without killing running conkys:"
+         echo -e "\t\"bl-conky-session --autostart\""
+         echo -e "\v\tRun several conky sessionfiles (option to kill conkys):"
+         echo -e "\t\"bl-conky-session --default sessionfile1 sessionfile2 etc\""
+)
+
+findArgs(){     # get command args (switches & sessionfile paths)
     i=0
+
     for arg in "$@";do
+        if [[ $arg = "--default" ]];then
+            arg="$SESSIONFILE"
+        fi
+        if [[ $arg = "--autostart" ]];then
+            arg="$SESSIONFILE"
+            NOKILL=1    # run from autostart, so don't ask to kill conkys
+        fi
         if test -f  "$arg" &>/dev/null;then # sessionfile exists
             rawArr[$i]="$arg"       # add sessionfiles to array
             i=$(($i+1))
         else
-            echo $"ERROR: $arg not found" >&2
+            echo "ERROR: sessionfile \"$arg\" not found" >&2
             exit 1
         fi
     done
     # remove duplicate args
     sessArr=(`printf "%s\n" "${rawArr[@]}" | sort -u`)
+    if ! [[ $NOKILL ]];then
+        killConkys
+    fi
     for session in "${sessArr[@]}";do # run the conkys in the sessionfiles
         source "$session"
     done
 }
 
+killConkys(){
+    msg="Kill running conkys first?"
+    RET=$(zenity --question --text="$msg")
+    if [[ $? == 0 ]];then            # kill all conkys
+        if [ "$(pidof conky)" ];then
+            killall conky && sleep 0.2s
+        fi
+    fi
+}
+
+NOKILL=0
 if [ $# -eq 0 ];then    # if no args, then run default sessionfile
+    killConkys
     source $SESSIONFILE
 elif [[ $1 = "-h" ]] || [[ $1 = "--help" ]];then
     echo "$USAGE"
