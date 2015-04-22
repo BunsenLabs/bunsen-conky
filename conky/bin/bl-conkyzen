@@ -20,7 +20,7 @@
 #   Running conkys are saved to a session file, and can be run with
 #   the "bl-conky-session" script. To start them at login, add the 
 #   following line to autostart:
-#                    (sleep 2s && bl-conky-session) &
+#                    (sleep 2s && bl-conky-session --autostart) &
 #
 #   Different saved-session files can be used by running the script with:
 #
@@ -95,7 +95,6 @@ for arg in "$@";do
                 ;;
     esac
 done
-
 
 # get conky directories in .conky, add to array
 conkyRunning
