@@ -5,6 +5,7 @@
 #   written by <damo> for BunsenLabs, April 2015
 #
 ########################################################################
+<<<<<<< HEAD
 CONKYPATH="$HOME/.conky"
 SESSIONFILE="$CONKYPATH/conky-session"
 USAGE=$(echo -e "\vUSAGE:\tbl-conky-session [OPTION(S)]...FILES"
@@ -23,6 +24,16 @@ USAGE=$(echo -e "\vUSAGE:\tbl-conky-session [OPTION(S)]...FILES"
 )
 
 findArgs(){     # get command args (switches & sessionfile paths)
+=======
+CONKYPATH="$HOME/.config/conky"
+SESSIONFILE="$CONKYPATH/conky-session.txt"
+USAGE=$(echo -e "\v  USAGE: with no command argument, the script uses the default"
+    echo -e "\t conky session file '$SESSIONFILE'\v"
+    echo -e "  To run other session files use:\v"
+    echo -e "\t'bl-conky-session /path/to/file1 /path/to/file2 etc'\v")
+
+findArgs(){     # get command args (sessionfile paths)
+>>>>>>> upstream/master
     i=0
 
     for arg in "$@";do
@@ -68,7 +79,7 @@ if [ $# -eq 0 ];then    # if no args, then run default sessionfile
 elif [[ $1 = "-h" ]] || [[ $1 = "--help" ]];then
     echo "$USAGE"
     exit 0
-else 
+else
     findArgs $@    # get the sessionfile paths from the command args
 fi
 
