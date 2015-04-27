@@ -4,10 +4,14 @@
 #
 #   written by <damo> for BunsenLabs, April 2015
 #
+#   To start the default conky session at login, add the following line
+#   to config/openbox/autostart:
+#
+#      (sleep 2s && bl-conky-session --autostart) &
+#
 ########################################################################
-<<<<<<< HEAD
-CONKYPATH="$HOME/.conky"
-SESSIONFILE="$CONKYPATH/conky-session"
+CONKYPATH="$HOME/.config/conky"
+SESSIONFILE="$CONKYPATH/conky-sessionfile"
 USAGE=$(echo -e "\vUSAGE:\tbl-conky-session [OPTION(S)]...FILES"
          echo -e "\n\tWith no command argument, the script uses the default"
          echo -e "\t\"\$CONKYPATH/conky-session\" sessionfile"
@@ -19,23 +23,12 @@ USAGE=$(echo -e "\vUSAGE:\tbl-conky-session [OPTION(S)]...FILES"
          echo -e "\t\"bl-conky-session --autostart /path/to/sessionfile\""
          echo -e "\v\tRun default sessionfile, without killing running conkys:"
          echo -e "\t\"bl-conky-session --autostart\""
-         echo -e "\v\tRun several conky sessionfiles (option to kill conkys):"
+         echo -e "\v\tRun several conky sessionfiles (option to kill conkys first):"
          echo -e "\t\"bl-conky-session --default sessionfile1 sessionfile2 etc\""
 )
 
 findArgs(){     # get command args (switches & sessionfile paths)
-=======
-CONKYPATH="$HOME/.config/conky"
-SESSIONFILE="$CONKYPATH/conky-session.txt"
-USAGE=$(echo -e "\v  USAGE: with no command argument, the script uses the default"
-    echo -e "\t conky session file '$SESSIONFILE'\v"
-    echo -e "  To run other session files use:\v"
-    echo -e "\t'bl-conky-session /path/to/file1 /path/to/file2 etc'\v")
-
-findArgs(){     # get command args (sessionfile paths)
->>>>>>> upstream/master
     i=0
-
     for arg in "$@";do
         if [[ $arg = "--default" ]];then
             arg="$SESSIONFILE"
@@ -48,17 +41,18 @@ findArgs(){     # get command args (sessionfile paths)
             rawArr[$i]="$arg"       # add sessionfiles to array
             i=$(($i+1))
         else
-            echo "ERROR: sessionfile \"$arg\" not found" >&2
-            exit 1
+            echo -e "ERROR: sessionfile \"$arg\" not found. Using default" >&2
+            conky -q 
+            exit 0
         fi
     done
     # remove duplicate args
     sessArr=(`printf "%s\n" "${rawArr[@]}" | sort -u`)
-    if ! [[ $NOKILL ]];then
+    if [[ $NOKILL == 0 ]];then
         killConkys
     fi
-    for session in "${sessArr[@]}";do # run the conkys in the sessionfiles
-        source "$session"
+    for SESSION in "${sessArr[@]}";do # run the conkys in the sessionfiles
+        source "$SESSION"
     done
 }
 
@@ -75,11 +69,11 @@ killConkys(){
 NOKILL=0
 if [ $# -eq 0 ];then    # if no args, then run default sessionfile
     killConkys
-    source $SESSIONFILE
+    source "$SESSIONFILE"
 elif [[ $1 = "-h" ]] || [[ $1 = "--help" ]];then
     echo "$USAGE"
     exit 0
-else
+else 
     findArgs $@    # get the sessionfile paths from the command args
 fi
 
