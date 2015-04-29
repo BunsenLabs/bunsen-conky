@@ -2,7 +2,7 @@
 #
 #   BunsenLabs Conky selection and switcher script
 #
-#   Written by <damo>, April 2015
+#   Written by <damo>, April 2015 
 #   Beta tested and stamped "zen" by <Sector11>
 #
 ########################################################################
@@ -18,9 +18,10 @@
 #   To stop a conky just uncheck it, and "OK"
 #
 #   Running conkys are saved to a session file, and can be run with
-#   the "bl-conky-session" script. To start them at login, add the
-#   following line to autostart:
-#                    (sleep 2s && bl-conky-session) &
+#   the "bl-conky-session" script. To start the default conky session at
+#   login, add the following line to autostart:
+#
+#     (sleep 2s && bl-conky-session --autostart) &
 #
 #   Different saved-session files can be used by running the script with:
 #
@@ -29,21 +30,44 @@
 ########################################################################
 
 CONKYPATH="$HOME/.config/conky"
-TEMPFILE="$CONKYPATH/conky-tmp"
-SESSIONFILE="$CONKYPATH/conky-session.txt"
+TEMPFILE="$CONKYPATH/conky-temp"
+SESSIONFILE="$CONKYPATH/conky-sessionfile"
+SESSIONS="$CONKYPATH/saved-sessions"    # to be used by a pipemenu
+
+USAGE1=$(echo -e "\vUSAGE:\tbl-conkyzen [OPTION]...FILES"
+        echo -e "\v\tWith no command option the script runs the gui"
+        echo -e "\v\t-h,--help \t\t: full USAGE help"
+        echo -e "\t-f,--file  FILEPATH\t: specify file to save session to"
+)
+
+USAGE2=$(echo -e "\vUSAGE:\tbl-conkyzen [OPTION]...FILES"
+        echo -e "\v\tWith no command option the script runs the gui"
+        echo -e "\v\t-h,--help   : this USAGE help"
+        echo -e "\t-f,--file  FILEPATH : specify file to save session to"
+        echo -e "\v\tWhen the dialog opens, any running conkys will be checkmarked."
+        echo -e "\tClick "OK" and all running conkys are stopped, and all"
+        echo -e "\tcheckmarked conkys are started."
+        echo -e "\v\tTo stop a conky just uncheck it, and \"OK\""
+        echo -e "\vEXAMPLES:"
+        echo -e "\tSave session to a new saved-session file with:"
+        echo -e "\v\t\tbl-conkyzen -f /path/to/sessionfile"
+        echo -e "\v\tTo start the default conky session at login, add the"
+        echo -e "\tfollowing line to autostart:"
+        echo -e "\v\t\t(sleep 2s && bl-conky-session --autostart) &\v"
+)
 
 ########## FUNCTIONS ###################################################
 conkyRunning(){    # find running conkys
-    > $TEMPFILE # make blank tempfile, to save running conky paths
+    > "$TEMPFILE" # make blank tempfile, to save running conky paths
     if [ "$(pidof conky)" ];then
-        ps aux | grep [c]onky" -c" |  awk  '{print $NF}' >> $TEMPFILE
+        ps aux | grep [c]onky" -c" |  awk  '{print $NF}' >> "$TEMPFILE"
     fi
 }
 
 fillArrays(){
     num="$1"
     conkysPath[$num]="$2"   # full filepath to conky
-    conkysArr[$num]="$3"    # displayed name: "directory/*conky(rc)"
+    conkysArr[$num]="$3"    # displayed name: "directory/*conky(rc)" 
     if grep -qx "$2" "$TEMPFILE";then # if conky is running (read from tempfile)
         checkArr[$num]="TRUE"       # make checkmark in dialog
     else
@@ -57,29 +81,63 @@ findConky(){
 
 num=0
 # find files in CONKYPATH with conky in the name
-for x in $(find $CONKYPATH -type f );do
-    f=$(basename $x)    # filename from filepath
+for x in $(find "$CONKYPATH" -type f );do 
+    f=$(basename "$x")    # filename from filepath
     if [[ $f = *conkyrc ]] || [[ $f = *conky ]];then
         # filename ends with *conky or *conkyrc
         # get directory/conkyname to display in list
-        CONKY=$( echo $x | awk -F"/" '{print $(NF-1)"/"$NF}')
-        fillArrays $num $x $CONKY
-        num=$(($num+1))
+        CONKY=$( echo "$x" | awk -F"/" '{print $(NF-1)"/"$NF}')
+        fillArrays $num "$x" "$CONKY"
+        num=$(($num+1)) 
     fi
 done
 }
 
+writeSessions(){    # save a new sessionfile name for use by a menu
+    fullpath=$(readlink -f "$1")    # ensure full filepath is used
+    SESSIONFILE="$fullpath"
+    echo "fullpath= $fullpath"
+    if ! [ -f "$SESSIONS" ];then
+        > "$SESSIONS"
+    fi
+    if grep -qx "$fullpath" "$SESSIONS";then # session was previously saved
+        return
+    else
+        echo "$fullpath" >> "$SESSIONS"
+    fi
+}
 ######## END FUNCTIONS #################################################
 
 # get args passed to script (session can be saved to a different file)
 for arg in "$@";do
     case "$arg" in
-        -f|-F ) SESSIONFILE="$2"    # sessionfile has been specified
-                ;;
-        *     ) SESSIONFILE="$SESSIONFILE" # sessionfile is default
-                ;;
+        -h|--help   ) echo "$USAGE2"
+                      echo
+                      exit 0
+                      ;;
+        -f|--files  ) if [[ $2 ]];then
+                        SESSIONFILE="$2"    # sessionfile has been specified
+                        writeSessions "$SESSIONFILE"    # if sessionfile is new, write name to saved-sessions
+                        break
+                      else
+                        echo 
+                        echo -e "\tNo saved-session file specified!"
+                        echo "$USAGE1"
+                        echo
+                        exit 1
+                      fi
+                      ;; 
+                 *  ) if ! [[ $arg ]];then
+                        SESSIONFILE="$SESSIONFILE" # sessionfile is default
+                        break
+                      else
+                        echo "$USAGE1"
+                        exit 1
+                      fi
+                      ;;
     esac
 done
+
 
 # get conky directories in .conky, add to array
 conkyRunning
@@ -92,7 +150,7 @@ for ((j=0; j<${#conkysArr[*]}; j++));do
 done
 
 ## Populate zenity dialog from array, get return value(s)
-RET=$(zenity --list --title "BunsenLabs Conky Chooser" --text "Session will be saved to:\n\n$SESSIONFILE"\
+RET=$(zenity --list --title "BunsenLabs Conky Chooser" --text "Session will be saved to:\n $SESSIONFILE"\
  --checklist --width=400 --height=500 \
     --column "Select" --column "Conky Name" --separator=":"\
     $msg)
@@ -100,37 +158,37 @@ RET=$(zenity --list --title "BunsenLabs Conky Chooser" --text "Session will be s
 if [[ $? == 1 ]]; then # cancel button pressed
     exit 0
 else
-    > $SESSIONFILE    # Create new session file
+    > "$SESSIONFILE"    # Create new session file
     # loop through returned choices, add to array
     i=0
     OIFS=$IFS   # save Internal Field Separator
     IFS=":"     # separator is ":" in returned choices
-    for name in $RET; do
-        retConky[$i]=$name
+    for name in $RET; do 
+        retConky[$i]="$name"
         i=$(($i+1))
     done
     IFS=$OIFS   # reset IFS back to default
-
+    
     # kill all conkys
     if [ "$(pidof conky)" ];then
         killall conky
     fi
-
+    
     # Find the chosen conkys and start them
     for name in ${retConky[*]};do       # loop through checkmarked conky names
         for ((j=0; j<${#conkysPath[*]}; j++));do  # traverse through elements
             for f in ${conkysPath[j]};do    # compare with choice from dialog
-                display=$( echo $f | awk -F"/" '{print $(NF-1)"/"$NF}')
+                display=$( echo "$f" | awk -F"/" '{print $(NF-1)"/"$NF}')
                 if [[ $display = $name ]];then
-                    echo -e "conky -c $f & sleep 1s" >> $SESSIONFILE
+                    echo -e "conky -c $f & sleep 1s" >> "$SESSIONFILE"
                     #start the conky (adjust the sleep time if required)
-                    conky -c "$f"; sleep 0.5s &
+                    conky -c "$f"; sleep 0.5s & 
                 fi
             done
         done
-    done
+    done 
 fi
 
-rm -r $TEMPFILE
+rm -r "$TEMPFILE"
 
 exit 0
