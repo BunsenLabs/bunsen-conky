@@ -1,35 +1,42 @@
 Conky
-===============================
-N O T E:  BETA TEST
 
-This new script is in BETA test. Please help test it
-===============================
 This repository holds Bunsen Labs' Conky configuration files and related scripts.
 
 Installation
 ------------
 
-/.config/conky
- conky/bin
- conky/LUA
- conky/BL-Button.conkyrc
- conky/BL-Default.conkyrc
- conky/BL-Ellipses-Blue.conkyrc
- conky/BL-Ellipses-Grey.conkyrc
- conky/BL-Left.conkyrc
- conky/BL-Right-lua.conkyrc
- conky/BL-Text.conkyrc
- conky/BL-Top.conkyrc
- conky/CB-Left.conkyrc
- conky/CB-Right.conkyrc
- conky/Classic.conkyrc
- conky/conkyrc_cb
+/.config/conky/
+conky/BL-Button.conkyrc
+conky/BL-Default.conkyrc
+conky/BL-Ellipses-Blue.conkyrc
+conky/BL-Ellipses-Grey.conkyrc
+conky/BL-Ellipses-Time.conkyrc
+conky/BL-Left.conkyrc
+conky/BL-Right-lua.conkyrc
+conky/BL-Text.conkyrc
+conky/BL-Top.conkyrc
+conky/CB-Left.conkyrc
+conky/CB-Right.conkyrc
+conky/Classic.conkyrc
+conky/conkyrc_cb
+conky/README
 
 /.config/conky/bin
- bl-conkyzen
+conky/bin/bl-conky-session
+conky/bin/bl-conkyzen
+
+/.config/conky/images
+conky/images/bl-flame-ellipses-blue.png
+conky/images/bl-flame-ellipses-grey.png
+conky/images/BL-Orb-Flame-lt-180x180.png
+conky/images/bunsenlabs-text-flame-grey.png
 
 /.config/conky/LUA
- draw-bg.lua
+conky/LUA/clock.lua
+conky/LUA/draw-bg.lua
+
+/.config/conky/scripts
+conky/scripts/bunsenweather.sh
 
 In OpenBox
 
