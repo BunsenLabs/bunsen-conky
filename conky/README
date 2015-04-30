@@ -21,9 +21,10 @@ conky/Classic.conkyrc
 conky/conkyrc_cb
 conky/README
 
-/.config/conky/bin
-conky/bin/bl-conky-session
-conky/bin/bl-conkyzen
+REMOVED: Now a part of Bunsen-Utilities
+## /.config/conky/bin
+## conky/bin/bl-conky-session
+## conky/bin/bl-conkyzen
 
 /.config/conky/images
 conky/images/bl-flame-ellipses-blue.png
@@ -37,20 +38,6 @@ conky/LUA/draw-bg.lua
 
 /.config/conky/scripts
 conky/scripts/bunsenweather.sh
-
-In OpenBox
-
-Label: Conky S|S (your option)
-Execute: ~/.config/conky/bin/bl-conkyzen
-
-OR:
-Create and make sure ~/bin is in your $PATH
-Then copy
- ~/.config/conky/bin/bl-conkyzen to ~/bin
-Label: Conky S|S (your option)
-Execute: ~/bin/bl-conkyzen
-
-Now both will work in a terminal or as an OpenBox entry
 
 bl-conkyzen saves the running conkys to a default saved-session file. Different
 saved-session files can specified with:
