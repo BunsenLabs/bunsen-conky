@@ -31,9 +31,9 @@ double_buffer yes
 minimum_size 208 274
 maximum_width 208
 
-alignment tm
-gap_x -200
-gap_y 60
+alignment mm
+gap_x 0
+gap_y 0
 
 no_buffers yes
 uppercase no
