@@ -35,7 +35,7 @@ minimum_size 870 0  ### width | height
 maximum_width 870
 
 gap_x 0		### left | right
-gap_y 10	### up | down
+gap_y 45	### up | down
 
 alignment tm
 #######################  End Window Settings  ###

@@ -36,7 +36,7 @@ minimum_size 200 0  ### width | height
 maximum_width 200
 
 gap_x 20	### left | right
-gap_y 20	### up | down
+gap_y 45	### up | down
 
 alignment tr
 #######################  End Window Settings  ###

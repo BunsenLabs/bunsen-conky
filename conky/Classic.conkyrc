@@ -41,7 +41,7 @@ draw_outline no
 default_outline_color 828282
 alignment top_right
 gap_x 20
-gap_y 20
+gap_y 45
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
