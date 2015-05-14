@@ -1,0 +1,16 @@
+Source: bunsen-conky
+Section: misc
+Priority: extra
+Maintainer: John Crawley <john@rafflesnagoya.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.5
+Homepage: https://github.com/BunsenLabs/bunsen-conky
+#Vcs-Git: https://github.com/BunsenLabs/bunsen-conky.git
+#Vcs-Browser: https://github.com/BunsenLabs/bunsen-conky.git
+
+Package: bunsen-conky
+Architecture: all
+Depends: ${misc:Depends}
+Description: Conky configuration files and related scripts for BunsenLabs.
+ A collection of conky configuration files, images and scripts which
+ allow the setting up of a variety of interesting conky displays.
