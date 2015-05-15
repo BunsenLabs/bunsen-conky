@@ -10,7 +10,7 @@
 # beta tested by: smacz
 # Enjoy! :)
 
-# pkill -xf "conky -q -c $HOME/.config/conky/BL-Default.conkyrc" &
+# pkill -xf "conky -q -c $HOME/.config/conky/BL-Def-Cal.conkyrc" &
 ###  Begin Window Settings  #####################
 own_window yes
 own_window_type normal
@@ -18,7 +18,7 @@ own_window_transparent yes
 own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
 own_window_colour 000000
 own_window_class Conky
-own_window_title Bunsen Labs Default Conky
+own_window_title BunsenLabs Default c/w Cal Conky
 
 ### ARGB can be used for real transparency
 ### NOTE that a composite manager is required for real transparency.
@@ -133,6 +133,10 @@ double_buffer yes
 update_interval 1
 
 TEXT
+${alignc}${color0}${time %X}
+${goto 28}${color}SU MO ${color0}${time %b %Y}${color} FR SA
+${goto 28}${color1}${execpi 1800 LAR=`date +%-d`; ncal -bh | sed '2d' | sed -e '1d' -e 's/\<'$LAR'\>/${color0}&${color1}/' | sed ':a;N;$!ba;s/\n/\n${goto 28}/g'}${color}${font}
+
 ${color}${alignc}S Y S T E M    I N F O
 ${hr}
 Host:${alignr}${nodename}
