@@ -1,3 +1,9 @@
+bunsen-conky (0.1-2) unstable; urgency=low
+
+  * Tweaked spacing on all conkys.
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 15 May 2015 12:43:35 +0900
+
 bunsen-conky (0.1-1) unstable; urgency=low
 
   * Initial release
