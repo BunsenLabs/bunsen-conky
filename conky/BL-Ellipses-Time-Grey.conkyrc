@@ -1,0 +1,55 @@
+# For commands above TEXT check:
+# http://conky.sourceforge.net/config_settings.html
+#
+# For commands available below TEXT check:
+# http://conky.sourceforge.net/variables.html
+
+# Bunsen Labs Conky help threads
+# http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+
+# BunsenLabs ellipses by <damo> April 2015
+#
+# compton.conf has "shadow-exclude = [ "n:a:Conky" ];", so ellipses.conkyrc
+# is draggable/resizable with Alt+ Lbutton/Rbutton
+
+background yes
+
+update_interval 1.0
+total_run_times 0
+
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_colour 000000
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_class Conky
+own_window_title BunsenLabs Ellipse Clock Conky
+
+double_buffer yes
+
+minimum_size 208 274
+maximum_width 208
+
+alignment mm
+gap_x 0
+gap_y 0
+
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+# Use Xft (anti-aliased font and stuff)
+use_xft yes
+xftfont Liberation Sans:size=12
+xftalpha 0
+default_color 676767
+uppercase no
+
+lua_load $HOME/.config/conky/LUA/clock-dots-grey.lua
+lua_draw_hook_pre draw_clock
+
+TEXT
+${image $HOME/.config/conky/images/bl-flame-ellipses-grey.png}
+${voffset 197}${alignr}${time %d}
+${alignr}${time %B}
+${alignr}${time %A}
