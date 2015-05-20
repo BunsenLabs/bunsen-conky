@@ -1,6 +1,6 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: bunsen-conky
-Source: <url://example.com>
+Source: https://github.com/BunsenLabs/bunsen-conky
 
 Files: *
 Copyright: 2015 Sector11

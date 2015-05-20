@@ -1,3 +1,15 @@
+bunsen-conky (0.1-4) unstable; urgency=low
+
+  * Add Recommends: bunsen-pipemenus
+
+ -- John Crawley <john@rafflesnagoya.com>  Wed, 20 May 2015 12:03:38 +0900
+
+bunsen-conky (0.1-3) unstable; urgency=low
+
+  * Add new conky files, update README.
+
+ -- John Crawley <john@rafflesnagoya.com>  Wed, 20 May 2015 12:01:44 +0900
+
 bunsen-conky (0.1-2) unstable; urgency=low
 
   * Tweaked spacing on all conkys.
