@@ -1,3 +1,9 @@
+bunsen-conky (0.1-5) unstable; urgency=low
+
+  * Move conky directory to /usr/share/bunsen/skel/.config
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 13:04:27 +0900
+
 bunsen-conky (0.1-4) unstable; urgency=low
 
   * Add Recommends: bunsen-pipemenus
