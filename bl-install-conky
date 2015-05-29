@@ -1,0 +1,38 @@
+#!/bin/bash
+
+HELP="$0: a utility to copy the conky configuration files
+installed by bunsen-conky into the user's home directory.
+Files will be in $HOME/.config/conky
+OPTIONS:
+[-c|-copy] copy in the files
+[-h|--help] display this message
+"
+#SOURCE=/usr/share/bunsen/skel/conky
+SOURCE=/home/john/git/bunsen/bunsen-conky/conky
+DEST=$HOME/.config
+
+# launch in terminal if one is not connected
+TERM=x-terminal-emulator
+[ -t 1 ] && [ -t 0 ] || {
+    exec $TERM -T 'Install conky files.' -e "$0" "$@"
+    exit 1
+}
+
+case $1 in
+--help|-h|'')
+    echo "$HELP"
+    exit
+    ;;
+--copy|-c)
+    [[ -d $SOURCE ]] || { echo "$SOURCE: no such directory" >&2;exit 1;}
+    [[ -d $DEST ]] || { echo "$DEST: no such directory" >&2;exit 1;}
+    cp -r --backup --suffix="~$( date +%FT%T )~" "$SOURCE" "$DEST"
+    ;;
+*)
+    echo "$1: unknown option.
+$HELP"
+    ;;
+esac
+
+
+exit

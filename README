@@ -4,6 +4,9 @@ This repository holds BunsenLabs' Conky configuration files and related scripts.
 
 Installation
 ------------
+This installation will be performed automatically 
+by the script /usr/bin/bl-install-conky which is in this package.
+Command: 'bl-install-conky --copy'
 
 /.config/conky
  conky/LUA
