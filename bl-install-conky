@@ -7,8 +7,7 @@ OPTIONS:
 [-c|-copy] copy in the files
 [-h|--help] display this message
 "
-#SOURCE=/usr/share/bunsen/skel/conky
-SOURCE=/home/john/git/bunsen/bunsen-conky/conky
+SOURCE=/usr/share/bunsen/skel/conky
 DEST=$HOME/.config
 
 # launch in terminal if one is not connected
@@ -21,12 +20,13 @@ TERM=x-terminal-emulator
 case $1 in
 --help|-h|'')
     echo "$HELP"
-    exit
     ;;
 --copy|-c)
     [[ -d $SOURCE ]] || { echo "$SOURCE: no such directory" >&2;exit 1;}
     [[ -d $DEST ]] || { echo "$DEST: no such directory" >&2;exit 1;}
-    cp -r --backup --suffix="~$( date +%FT%T )~" "$SOURCE" "$DEST"
+    echo 'copying files...'
+    cp -r -i --backup --suffix="~$( date +%FT%T )~" "$SOURCE" "$DEST"
+    echo 'done'
     ;;
 *)
     echo "$1: unknown option.
@@ -34,5 +34,7 @@ $HELP"
     ;;
 esac
 
+echo 'Press any key to exit'
+read -sn1
 
-exit
+exit 0

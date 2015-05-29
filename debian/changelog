@@ -1,3 +1,9 @@
+bunsen-conky (0.1-7) unstable; urgency=low
+
+  * Fix bug in bl-install-conky.
+
+ -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 15:23:16 +0900
+
 bunsen-conky (0.1-6) unstable; urgency=low
 
   * Add script bl-install-conky to copy config files into home directory.
