@@ -1,3 +1,9 @@
+bunsen-conky (8.0-1) bunsen-hydrogen; urgency=low
+
+  * Add conky-all to dependencies.
+
+ -- John Crawley <john@rafflesnagoya.com>  Tue, 08 Sep 2015 16:50:51 +0900
+
 bunsen-conky (0.1-7) unstable; urgency=low
 
   * Fix bug in bl-install-conky.
