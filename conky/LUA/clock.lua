@@ -1,7 +1,7 @@
 --[[
 Analog Clock, based on code for Air Clock by Alison Pitt (2009)
 
-Modified by <damo> April 2015
+Modified by damo <damo@bunsenlabs.org> April 2015
 
 This clock is designed to look like KDE 4.3's "Air" clock, but from inside Conky.
 

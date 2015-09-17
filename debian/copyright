@@ -4,12 +4,12 @@ Source: https://github.com/BunsenLabs/bunsen-conky
 
 Files: *
 Copyright: 2015 Sector11
-           2015 Damo
+           2015 damo <damo@bunsenlabs.org>
            2015 Ryan Fantus
 qsLicense: GPL-3.0+
 
 Files: debian/*
-Copyright: 2015 John Crawley <john@rafflesnagoya.com>
+Copyright: 2015 John Crawley <john@bunsenlabs.org>
 License: GPL-3.0+
 
 License: GPL-3.0+
