@@ -36,7 +36,7 @@ minimum_size 200 0  ### width | height
 maximum_width 200
 
 gap_x 20	### left | right
-gap_y 20	### up | down
+gap_y 45	### up | down
 
 alignment tr
 #######################  End Window Settings  ###
@@ -156,7 +156,7 @@ update_interval 1
 
 TEXT
 ${font Liberation Mono:bold:size=10}${alignc}${color5}${time %X}
-${goto 27}${color0}MO TU ${color5}${time %b %Y}${color0} SA SU
+${goto 27}${color0}Mo TU ${color5}${time %b %Y}${color0} SA SU
 ${goto 27}${color1}${execpi 7200 LAR=`date +%-d`; ncal -bh | sed '2d' | sed -e '1d' -e 's/\<'$LAR'\>/${color5}&${color1}/' | sed ':a;N;$!ba;s/\n/\n${goto 27}/g'}${color}${font}
 ${alignc}S Y S T E M    I N F O
 ${hr}
@@ -192,3 +192,4 @@ ${hr}
 [S] + v${alignr}Volume Control
 [S] + x${alignr}Logout
 [PrtSc]${alignr}Screenshot
+
