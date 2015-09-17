@@ -1,3 +1,9 @@
+bunsen-conky (8.1-1) bunsen-hydrogen; urgency=medium
+
+  * By damo: Fix date layout in BL-Right-lua.conkyrc
+
+ -- Jens John <dev@2ion.de>  Thu, 17 Sep 2015 16:39:51 +0200
+
 bunsen-conky (8.0-1) bunsen-hydrogen; urgency=low
 
   * Add conky-all to dependencies.
