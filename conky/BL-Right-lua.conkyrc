@@ -156,8 +156,7 @@ update_interval 1
 
 TEXT
 ${font Liberation Mono:bold:size=10}${alignc}${color5}${time %X}
-${goto 27}${color0}Mo TU ${color5}${time %b %Y}${color0} SA SU
-${goto 27}${color1}${execpi 7200 LAR=`date +%-d`; ncal -bh | sed '2d' | sed -e '1d' -e 's/\<'$LAR'\>/${color5}&${color1}/' | sed ':a;N;$!ba;s/\n/\n${goto 27}/g'}${color}${font}
+${goto 27}${color1}${execpi 7200 LAR=`date +%-d`; ncal -bh | sed 's/\<'$LAR'\>/${color5}&${color1}/' | sed ':a;N;$!ba;s/\n/\n${goto 27}/g'}${color}${font}
 ${alignc}S Y S T E M    I N F O
 ${hr}
 Host:${alignr}${nodename}
