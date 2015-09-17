@@ -7,8 +7,7 @@
 # Bunsen Labs Conky help threads
 # http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
 
-# BunsenLabs ellipses by <damo> April 2015
-#
+# BunsenLabs ellipses by damo <damo@bunsenlabs.org> April 2015
 # compton.conf has "shadow-exclude = [ "n:a:Conky" ];", so ellipses.conkyrc
 # is draggable/resizable with Alt+ Lbutton/Rbutton
 
