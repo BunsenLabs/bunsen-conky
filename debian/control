@@ -1,7 +1,7 @@
 Source: bunsen-conky
 Section: misc
 Priority: extra
-Maintainer: John Crawley <john@rafflesnagoya.com>
+Maintainer: John Crawley <john@bunsenlabs.org>
 Build-Depends: debhelper (>= 9)
 Standards-Version: 3.9.5
 Homepage: https://github.com/BunsenLabs/bunsen-conky

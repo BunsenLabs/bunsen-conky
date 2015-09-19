@@ -8,46 +8,46 @@ bunsen-conky (8.0-1) bunsen-hydrogen; urgency=low
 
   * Add conky-all to dependencies.
 
- -- John Crawley <john@rafflesnagoya.com>  Tue, 08 Sep 2015 16:50:51 +0900
+ -- John Crawley <john@bunsenlabs.org>  Tue, 08 Sep 2015 16:50:51 +0900
 
 bunsen-conky (0.1-7) unstable; urgency=low
 
   * Fix bug in bl-install-conky.
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 15:23:16 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 29 May 2015 15:23:16 +0900
 
 bunsen-conky (0.1-6) unstable; urgency=low
 
   * Add script bl-install-conky to copy config files into home directory.
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 14:33:43 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 29 May 2015 14:33:43 +0900
 
 bunsen-conky (0.1-5) unstable; urgency=low
 
   * Move conky directory to /usr/share/bunsen/skel/.config
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 29 May 2015 13:04:27 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 29 May 2015 13:04:27 +0900
 
 bunsen-conky (0.1-4) unstable; urgency=low
 
   * Add Recommends: bunsen-pipemenus
 
- -- John Crawley <john@rafflesnagoya.com>  Wed, 20 May 2015 12:03:38 +0900
+ -- John Crawley <john@bunsenlabs.org>  Wed, 20 May 2015 12:03:38 +0900
 
 bunsen-conky (0.1-3) unstable; urgency=low
 
   * Add new conky files, update README.
 
- -- John Crawley <john@rafflesnagoya.com>  Wed, 20 May 2015 12:01:44 +0900
+ -- John Crawley <john@bunsenlabs.org>  Wed, 20 May 2015 12:01:44 +0900
 
 bunsen-conky (0.1-2) unstable; urgency=low
 
   * Tweaked spacing on all conkys.
 
- -- John Crawley <john@rafflesnagoya.com>  Fri, 15 May 2015 12:43:35 +0900
+ -- John Crawley <john@bunsenlabs.org>  Fri, 15 May 2015 12:43:35 +0900
 
 bunsen-conky (0.1-1) unstable; urgency=low
 
   * Initial release
 
- -- John Crawley <john@rafflesnagoya.com>  Thu, 07 May 2015 16:03:30 +0900
+ -- John Crawley <john@bunsenlabs.org>  Thu, 07 May 2015 16:03:30 +0900
