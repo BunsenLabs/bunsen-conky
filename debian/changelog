@@ -1,3 +1,9 @@
+bunsen-conky (8.2-1) bunsen-hydrogen; urgency=medium
+
+  * damo: Change days' display so they aren't hard-coded
+
+ -- Jens John <dev@2ion.de>  Fri, 18 Sep 2015 21:27:51 +0200
+ 
 bunsen-conky (8.1-1) bunsen-hydrogen; urgency=medium
 
   * By damo: Fix date layout in BL-Right-lua.conkyrc
