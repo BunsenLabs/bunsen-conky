@@ -35,8 +35,8 @@ own_window_title Bunsen Labs CB Right Conky
 minimum_size 200 0  ### width | height
 maximum_width 200
 
-gap_x 20	### left | right
-gap_y 45	### up | down
+gap_x 20    ### left | right
+gap_y 45    ### up | down
 
 alignment tr
 #######################  End Window Settings  ###
@@ -44,7 +44,8 @@ alignment tr
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
 #xftfont Liberation Mono:bold:size=10
-xftfont Liberation Sans:bold:size=10
+#xftfont Liberation Sans:bold:size=10
+xftfont Sans-serif:bold:size=10
 
 # Alpha of Xft font. Must be a value at or between 1 and 0
 xftalpha 1

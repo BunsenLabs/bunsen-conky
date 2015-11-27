@@ -20,7 +20,8 @@
 ##############################################
 background yes
 use_xft yes
-xftfont Liberation Sans:size=9
+#xftfont Liberation Sans:size=9
+xftfont Sans-serif:size=9
 xftalpha 1
 update_interval 1.0
 total_run_times 0

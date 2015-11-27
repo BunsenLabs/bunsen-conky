@@ -34,8 +34,8 @@ own_window_title Bunsen Labs Top Conky
 minimum_size 870 0  ### width | height
 maximum_width 870
 
-gap_x 0		### left | right
-gap_y 45	### up | down
+gap_x 0     ### left | right
+gap_y 45    ### up | down
 
 alignment tm
 #######################  End Window Settings  ###
@@ -43,7 +43,8 @@ alignment tm
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
 ## Requires mono font for spacing reasons
-xftfont Liberation Mono:bold:size=9
+#xftfont Liberation Mono:bold:size=9
+xftfont Monospace:bold:size=9
 
 
 # Alpha of Xft font. Must be a value at or between 1 and 0 ###

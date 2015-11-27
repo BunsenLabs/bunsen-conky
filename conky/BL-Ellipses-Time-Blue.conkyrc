@@ -40,7 +40,7 @@ cpu_avg_samples 2
 override_utf8_locale no
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
-xftfont Liberation Sans:size=12
+xftfont Sans-serif:size=12
 xftalpha 0
 default_color 2A4F77
 uppercase no

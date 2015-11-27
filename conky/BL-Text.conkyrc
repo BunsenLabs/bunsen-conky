@@ -35,8 +35,8 @@ own_window_title Bunsen Labs Branding Conky
 minimum_size 454 207  ### w|h
 #maximum_width 180
 
-gap_x -455	### l|r
-gap_y -203	### u|d
+gap_x -455  ### l|r
+gap_y -203  ### u|d
 
 alignment mm
 #######################  End Window Settings  ###
@@ -44,7 +44,7 @@ alignment mm
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
 
-xftfont Liberation Mono:bold:size=9
+xftfont Monospace:bold:size=9
 #xftfont Fantasque Sans Mono:bold:size=9
 
 
