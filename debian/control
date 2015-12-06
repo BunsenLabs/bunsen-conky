@@ -10,7 +10,7 @@ Homepage: https://github.com/BunsenLabs/bunsen-conky
 
 Package: bunsen-conky
 Architecture: all
-Depends: ${misc:Depends}, conky-all
+Depends: ${misc:Depends}, conky-all, jq
 Recommends: bunsen-utilities, bunsen-pipemenus
 Description: Conky configuration files and related scripts for BunsenLabs.
  A collection of conky configuration files, images and scripts which
