@@ -37,7 +37,7 @@ gap_y 0
 no_buffers yes
 uppercase no
 cpu_avg_samples 2
-override_utf8_locale no
+override_utf8_locale yes
 # Use Xft (anti-aliased font and stuff)
 use_xft yes
 xftfont Sans-serif:size=12
