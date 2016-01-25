@@ -1,3 +1,9 @@
+bunsen-conky (8.3.1-2) bunsen-hydrogen; urgency=low
+
+  * debian/copyright: Update year.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 25 Jan 2016 12:34:01 +0900
+
 bunsen-conky (8.3.1-1) bunsen-hydrogen; urgency=low
 
   * Set 'override_utf8_locale yes' in all conky config files.

@@ -3,7 +3,7 @@ Upstream-Name: bunsen-conky
 Source: https://github.com/BunsenLabs/bunsen-conky
 
 Files: *
-Copyright: 2015 Sector11 <sector11@fibertel.com.ar>
+Copyright: 2015-2016 Sector11 <sector11@fibertel.com.ar>
            2015 damo <damo@bunsenlabs.org>
            2015 Ryan Fantus
 License: GPL-3.0+
