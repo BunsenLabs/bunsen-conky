@@ -11,9 +11,9 @@ SOURCE=/usr/share/bunsen/skel/conky
 DEST=$HOME/.config
 
 # launch in terminal if one is not connected
-TERM=x-terminal-emulator
+terminal=x-terminal-emulator
 [ -t 1 ] && [ -t 0 ] || {
-    exec $TERM -T 'Install conky files.' -e "$0" "$@"
+    exec $terminal -T 'Install conky files.' -e "$0" "$@"
     exit 1
 }
 

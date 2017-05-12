@@ -1,3 +1,9 @@
+bunsen-conky (9.0.1-1) helium; urgency=low
+
+  * bl-install-conky: bug-fix: avoid possible clash with environment variable.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 12 May 2017 16:04:19 +0900
+
 bunsen-conky (9.0-1) helium; urgency=medium
 
   * Version bump for helium.
