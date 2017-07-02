@@ -1,118 +1,92 @@
-# For commands above TEXT check:
-# http://conky.sourceforge.net/config_settings.html
-#
-# For commands available below TEXT check:
-# http://conky.sourceforge.net/variables.html
+conky.config = {
+-- For conky variables and commands use the terminal command:
 
-# Bunsen Labs Conky help threads
-# http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+-- man conky
 
-# beta tested by: smacz
-# Enjoy! :)
+-- Bunsen Labs Conky help threads
 
-# pkill -xf "conky -q -c $HOME/.config/conky/BL-Button.conkyrc" &
-###  Begin Window Settings  #####################
-own_window yes
-own_window_type normal
-own_window_transparent yes
-own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
-own_window_colour 000000
-own_window_class Conky
-own_window_title Bunsen Labs Branding Conky
+-- Index » Scripts, Tutorials & Tips » Conky - Calendars / Clocks / Time
+-- https://forums.bunsenlabs.org/viewtopic.php?id=516
 
-### ARGB can be used for real transparency
-### NOTE that a composite manager is required for real transparency.
-### This option will not work as desired (in most cases) in conjunction with
-### own_window_type normal
-# own_window_argb_visual yes # Options: yes or no
+-- Open a thread and Post conky questions in: Index » GUI & Applications
+-- https://forums.bunsenlabs.org/viewforum.php?id=4
 
-### When ARGB visuals are enabled, this use this to modify the alpha value
-### Use: own_window_type normal
-### Use: own_window_transparent no
-### Valid range is 0-255, where 0 is 0% opacity, and 255 is 100% opacity.
-# own_window_argb_value 0
+-- Display your completed conky and codes
+-- Index » Scripts, Tutorials & Tips » Show us your conky
+-- https://forums.bunsenlabs.org/viewtopic.php?id=512
 
-minimum_size 180 180  ### w|h
-maximum_width 180
+--  Begin Window Settings
 
-gap_x 0 ### l|r
-gap_y 0 ### u|d
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
+	own_window_colour = '#000000',
+	own_window_class = 'Conky',
+	own_window_title = 'Bunsen Labs Branding Conky',
+--	own_window_argb_visual = true,
+--	own_window_argb_value = 0,
 
-alignment mm
-#######################  End Window Settings  ###
-###  Font Settings  #############################
-# Use Xft (anti-aliased font and stuff)
-use_xft yes
+	minimum_width = 180, minimum_height = 180,
+	maximum_width = 180,
 
-xftfont Monospace:bold:size=9
-#xftfont Liberation Mono:bold:size=9
-#xftfont Fantasque Sans Mono:bold:size=9
+	gap_x = 0,-- l|r
+	gap_y = 0,-- u|d
 
+	alignment = 'middle_middle',
 
-# Alpha of Xft font. Must be a value at or between 1 and 0 ###
-xftalpha 1
-# Force UTF8? requires XFT ###
-override_utf8_locale yes
+--  End Window Settings
+--  Font Settings
 
-uppercase no
-#########################  End Font Settings  ###
-###  Colour Settings  ###########################
-draw_shades no #yes
-default_shade_color 000000
-draw_outline no
-default_outline_color 000000
+	use_xft = true,
+	font = 'Monospace:bold:size=9',
+	xftalpha = 1,
+	override_utf8_locale = true,
 
-#default_color 656667 # Waldorf original colour
-#default_color 7a7a7a # Flame  & Bunsen Grey
-#default_color 929292 # Labs Grey
-default_color C0C0C0 # Silver
-color0 B0E0E6 # PowderBlue
-color1 778899 # LightSlateGray
-color2 D8BFD8 # Thistle
-color3 9ACD32 # YellowGreen
-color4 FFA07A # LightSalmon
-color5 FFDEAD # NavajoWhite
-color6 00BFFF # DeepSkyBlue
-color7 5F9EA0 # CadetBlue
-color8 BDB76B # DarkKhaki
-color9 CD5C5C # IndianRed
-#######################  End Colour Settings  ###
-###  Borders Section  ###########################
-draw_borders no #yes
-# Stippled borders?
-stippled_borders 5
-# border margins
-border_inner_margin 5
-border_outer_margin 0
-# border width
-border_width 2
-# graph borders
-# draw_graph_borders yes
-# default_graph_size 15 40
-#######################  End Borders Section  ###
-###  Miscellaneous Section  #####################
-# Boolean value, if true, Conky will be forked to background when started.
-background yes
+	uppercase = false,
 
-# Adds spaces around certain objects to stop them from moving other things
-# around, this only helps if you are using a mono font
-# Options: right, left or none
-use_spacer none
+--  End Font Settings
+--  Colour Settings
+	draw_shades = false,
+	default_shade_color = '#000000',
+	draw_outline = false,
+	default_outline_color = '#000000',
 
-# Subtract (file system) buffers from used memory?
-no_buffers yes
+	default_color = '#C0C0C0',-- Silver
+	color0 = '#B0E0E6',-- PowderBlue
+	color1 = '#778899',-- LightSlateGray
+	color2 = '#D8BFD8',-- Thistle
+	color3 = '#9ACD32',-- YellowGreen
+	color4 = '#FFA07A',-- LightSalmon
+	color5 = '#FFDEAD',-- NavajoWhite
+	color6 = '#00BFFF',-- DeepSkyBlue
+	color7 = '#5F9EA0',-- CadetBlue
+	color8 = '#BDB76B',-- DarkKhaki
+	color9 = '#CD5C5C',-- IndianRed
 
-# Imlib2 image cache size, in bytes. Default 4MiB Increase this value if you use
-# $image lots. Set to 0 to disable the image cache.
-imlib_cache_size 0
+--  End Colour Settings
+--  Borders Section
+	draw_borders = false,
+	stippled_borders = 5,
+	border_inner_margin = 5,
+	border_outer_margin = 0,
+	border_width = 2,
 
-# Use the Xdbe extension? (eliminates flicker)
-# It is highly recommended to use own window with this one
-# so double buffer won't be so big.
-double_buffer yes
-#################  End Miscellaneous Section  ###
+--  End Borders Section
+--  Miscellaneous Section
 
-update_interval 1
+	background = true,
+	use_spacer = 'none',
+	no_buffers = true,
+	imlib_cache_size = 0,
+	double_buffer = true,
 
-TEXT
+--  End Miscellaneous Section
+
+	update_interval = 1,
+
+};
+
+conky.text = [[
 ${image $HOME/.config/conky/images/BL-Orb-Flame-lt-180x180.png}
+]];

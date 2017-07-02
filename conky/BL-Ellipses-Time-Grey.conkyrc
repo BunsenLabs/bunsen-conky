@@ -1,55 +1,69 @@
-# For commands above TEXT check:
-# http://conky.sourceforge.net/config_settings.html
-#
-# For commands available below TEXT check:
-# http://conky.sourceforge.net/variables.html
+conky.config = {
+-- For conky variables and commands use the terminal command:
 
-# Bunsen Labs Conky help threads
-# http://crunchbang.org/forums/viewtopic.php?pid=371424#p371424
+-- man conky
 
-# BunsenLabs ellipses by damo <damo@bunsenlabs.org> April 2015
-# compton.conf has "shadow-exclude = [ "n:a:Conky" ];", so ellipses.conkyrc
-# is draggable/resizable with Alt+ Lbutton/Rbutton
+-- Bunsen Labs Conky help threads
 
-background yes
+-- Index » Scripts, Tutorials & Tips » Conky - Calendars / Clocks / Time
+-- https://forums.bunsenlabs.org/viewtopic.php?id=516
 
-update_interval 1.0
-total_run_times 0
+-- Open a thread and Post conky questions in: Index » GUI & Applications
+-- https://forums.bunsenlabs.org/viewforum.php?id=4
 
-own_window yes
-own_window_type normal
-own_window_transparent yes
-own_window_colour 000000
-own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
-own_window_class Conky
-own_window_title BunsenLabs Ellipse Clock Conky
+-- Display completed conkys and codes
+-- Index » Scripts, Tutorials & Tips » Show us your conky
+-- https://forums.bunsenlabs.org/viewtopic.php?id=512
 
-double_buffer yes
+-- BunsenLabs ellipses by damo <damo@bunsenlabs.org> April 2015
+-- compton.conf has "shadow-exclude = [ "n:a:Conky" ];", so ellipses.conkyrc
+-- is draggable/resizable with Alt+ Lbutton/Rbutton
 
-minimum_size 208 274
-maximum_width 208
+--  Begin Window Settings
 
-alignment mm
-gap_x 0
-gap_y 0
+	background = true,
 
-no_buffers yes
-uppercase no
-cpu_avg_samples 2
-override_utf8_locale yes
-# Use Xft (anti-aliased font and stuff)
-use_xft yes
-#xftfont Liberation Sans:size=12
-xftfont Sans-serif:size=12
-xftalpha 0
-default_color 676767
-uppercase no
+	update_interval = 1.0,
+	total_run_times = 0,
 
-lua_load $HOME/.config/conky/LUA/clock-dots-grey.lua
-lua_draw_hook_pre draw_clock
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = true,
+	own_window_colour = '#000000',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	own_window_class = 'Conky',
+	own_window_title = 'BunsenLabs Ellipse Clock Conky',
 
-TEXT
+--	own_window_argb_visual = true,
+--	own_window_argb_value = 0,
+
+	double_buffer = true,
+
+	minimum_width = 208, minimum_height = 274,
+	maximum_width = 208,
+
+	alignment = 'middle_middle',
+	gap_x = 0,
+	gap_y = 0,
+
+	no_buffers = true,
+	uppercase = false,
+	cpu_avg_samples = 2,
+	override_utf8_locale = true,
+	use_xft = true,
+	font = 'Sans-serif:size=12',
+	xftalpha = 0,
+	default_color = '#676767',
+	uppercase = false,
+
+	lua_load = '$HOME/.config/conky/LUA/clock-dots-grey.lua',
+	lua_draw_hook_pre = 'draw_clock',
+
+};
+
+conky.text = [[
 ${image $HOME/.config/conky/images/bl-flame-ellipses-grey.png}
 ${voffset 197}${alignr}${time %d}
 ${alignr}${time %B}
 ${alignr}${time %A}
+]];
