@@ -1,3 +1,9 @@
+bunsen-conky (9.1-1) helium; urgency=high
+
+  * Update all config files to conky 1.10 syntax.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 05 Jul 2017 17:05:04 +0900
+
 bunsen-conky (9.0.1-1) helium; urgency=low
 
   * bl-install-conky: bug-fix: avoid possible clash with environment variable.
