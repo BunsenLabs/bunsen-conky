@@ -1,3 +1,9 @@
+bunsen-conky (9.1-2) helium; urgency=low
+
+  * debian/copyright: update dates
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 05 Jul 2017 18:20:43 +0900
+
 bunsen-conky (9.1-1) helium; urgency=high
 
   * Update all config files to conky 1.10 syntax.
