@@ -24,8 +24,8 @@ conky.config = {
 	own_window_class = 'Conky',
 	own_window_title = 'Bunsen Labs Default Conky',
 
-	own_window_argb_visual = true,--#
-	own_window_argb_value = 50,--#
+	own_window_argb_visual = true,
+	own_window_argb_value = 150,
 
 	minimum_width = 200, minimum_height = 0,-- w|h
 	maximum_width = 200,

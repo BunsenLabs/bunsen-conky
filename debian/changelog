@@ -1,3 +1,9 @@
+bunsen-conky (9.1.1-1) helium; urgency=medium
+
+  * conky/BL-Default.conkyrc: adjust argb_value to 150.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 06 Jul 2017 10:52:22 +0900
+
 bunsen-conky (9.1-2) helium; urgency=low
 
   * debian/copyright: update dates
