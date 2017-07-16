@@ -1,26 +1,28 @@
+--[[ For conky variables and commands use the terminal command:
+
+ man conky
+
+ Bunsen Labs Conky help threads
+ ------------------------------
+ Index » Scripts, Tutorials & Tips » Conky - Calendars / Clocks / Time
+ https://forums.bunsenlabs.org/viewtopic.php?id=516
+
+ Open a thread and Post conky questions in: Index » GUI & Applications
+ https://forums.bunsenlabs.org/viewforum.php?id=4
+
+ Display your completed conky and codes
+ Index » Scripts, Tutorials & Tips » Show us your conky
+ https://forums.bunsenlabs.org/viewtopic.php?id=512
+]]
+
 conky.config = {
--- For conky variables and commands use the terminal command:
-
--- man conky
-
--- Bunsen Labs Conky help threads
-
--- Index » Scripts, Tutorials & Tips » Conky - Calendars / Clocks / Time
--- https://forums.bunsenlabs.org/viewtopic.php?id=516
-
--- Open a thread and Post conky questions in: Index » GUI & Applications
--- https://forums.bunsenlabs.org/viewforum.php?id=4
-
--- Display completed conkys and codes
--- Index » Scripts, Tutorials & Tips » Show us your conky
--- https://forums.bunsenlabs.org/viewtopic.php?id=512
 
 --  Begin Window Settings
 	own_window = true,
 	own_window_type = 'normal',
 	own_window_transparent = true,
 	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
-	own_window_colour = '#000000',
+	own_window_colour = '000000',
 	own_window_class = 'Conky',
 	own_window_title = 'Bunsen Labs Branding Conky',
 
@@ -36,7 +38,7 @@ conky.config = {
 	alignment = 'middle_middle',
 
 --  End Window Settings
---##  Font Settings
+--  Font Settings
 
 	use_xft = true,
 	font = 'Monospace:bold:size=9',
@@ -46,21 +48,21 @@ conky.config = {
 --  End Font Settings
 --  Colour Settings
 	draw_shades = false,
-	default_shade_color = '#000000',
+	default_shade_color = '000000',
 	draw_outline = false,
-	default_outline_color = '#000000',
+	default_outline_color = '000000',
 
-	default_color = '#C0C0C0',-- Silver
-	color0 = '#B0E0E6',-- PowderBlue
-	color1 = '#778899',-- LightSlateGray
-	color2 = '#D8BFD8',-- Thistle
-	color3 = '#9ACD32',-- YellowGreen
-	color4 = '#FFA07A',-- LightSalmon
-	color5 = '#FFDEAD',-- NavajoWhite
-	color6 = '#00BFFF',-- DeepSkyBlue
-	color7 = '#5F9EA0',-- CadetBlue
-	color8 = '#BDB76B',-- DarkKhaki
-	color9 = '#CD5C5C',-- IndianRed
+	default_color = '678b8b',-- Beam green
+	color0 = 'B0E0E6',-- PowderBlue
+	color1 = '778899',-- LightSlateGray
+	color2 = 'D8BFD8',-- Thistle
+	color3 = '9ACD32',-- YellowGreen
+	color4 = 'FFA07A',-- LightSalmon
+	color5 = 'FFDEAD',-- NavajoWhite
+	color6 = '00BFFF',-- DeepSkyBlue
+	color7 = '5F9EA0',-- CadetBlue
+	color8 = 'BDB76B',-- DarkKhaki
+	color9 = 'C0C0C0',-- Silver
 
 --  End Colour Settings
 --  Borders Section
@@ -80,7 +82,7 @@ conky.config = {
 	imlib_cache_size = 0,
 	double_buffer = true,
 
---  End Miscellaneous Section  ###
+--  End Miscellaneous Section  
 
 	update_interval = 1,
 

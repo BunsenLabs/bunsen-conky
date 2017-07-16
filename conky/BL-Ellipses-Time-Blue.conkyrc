@@ -1,24 +1,21 @@
+--[[ For conky variables and commands use the terminal command:
+
+ man conky
+
+ Bunsen Labs Conky help threads
+ ------------------------------
+ Index » Scripts, Tutorials & Tips » Conky - Calendars / Clocks / Time
+ https://forums.bunsenlabs.org/viewtopic.php?id=516
+
+ Open a thread and Post conky questions in: Index » GUI & Applications
+ https://forums.bunsenlabs.org/viewforum.php?id=4
+
+ Display your completed conky and codes
+ Index » Scripts, Tutorials & Tips » Show us your conky
+ https://forums.bunsenlabs.org/viewtopic.php?id=512
+]]
+
 conky.config = {
--- For conky variables and commands use the terminal command:
-
--- man conky
-
--- Bunsen Labs Conky help threads
-
--- Index » Scripts, Tutorials & Tips » Conky - Calendars / Clocks / Time
--- https://forums.bunsenlabs.org/viewtopic.php?id=516
-
--- Open a thread and Post conky questions in: Index » GUI & Applications
--- https://forums.bunsenlabs.org/viewforum.php?id=4
-
--- Display completed conkys and codes
--- Index » Scripts, Tutorials & Tips » Show us your conky
--- https://forums.bunsenlabs.org/viewtopic.php?id=512
-
--- BunsenLabs BL-Ellipses-Time-Blue by damo <damo@bunsenlabs.org> April 2015
-
--- compton.conf has "shadow-exclude = [ "n:a:Conky" ];", so ellipses.conkyrc
--- is draggable/resizable with Alt+ Lbutton/Rbutton
 
 --  Begin Window Settings
 
@@ -30,7 +27,7 @@ conky.config = {
 	own_window = true,
 	own_window_type = 'normal',
 	own_window_transparent = true,
-	own_window_colour = '#000000',
+	own_window_colour = '000000',
 	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
 	own_window_class = 'Conky',
 	own_window_title = 'BunsenLabs Ellipse Clock Conky',
@@ -54,7 +51,7 @@ conky.config = {
 	use_xft = true,
 	font = 'Sans-serif:size=12',
 	xftalpha = 0,
-	default_color = '#2A4F77',
+	default_color = '2A4F77',
 	uppercase = false,
 
 	lua_load = '$HOME/.config/conky/LUA/clock-dots-blue.lua',
