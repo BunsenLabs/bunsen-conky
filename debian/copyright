@@ -4,8 +4,8 @@ Source: https://github.com/BunsenLabs/bunsen-conky
 
 Files: *
 Copyright: 2015-2017 Sector11 <sector11@fibertel.com.ar>
-           2015 damo <damo@bunsenlabs.org>
            2015 Ryan Fantus
+           2015-2017 damo <damo@bunsenlabs.org>
 License: GPL-3.0+
 
 Files: debian/*

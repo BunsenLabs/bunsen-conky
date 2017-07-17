@@ -1,3 +1,11 @@
+bunsen-conky (9.2-1) helium; urgency=medium
+
+  * damo: All conky files converted to v1.10 syntax.
+     Corrected syntax in commented lines.
+     Changed default_color in most conkys to Beam theme color.
+
+ -- John Crawley <john@bunsenlabs.org>  Mon, 17 Jul 2017 10:41:42 +0900
+
 bunsen-conky (9.1.1-1) helium; urgency=medium
 
   * conky/BL-Default.conkyrc: adjust argb_value to 150.
