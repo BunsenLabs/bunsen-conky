@@ -1,0 +1,137 @@
+--[[ For conky variables and commands use the terminal command:
+
+ man conky
+
+ Bunsen Labs Conky help threads
+ ------------------------------
+ Index » Scripts, Tutorials & Tips » Conky - Calendars / Clocks / Time
+ https://forums.bunsenlabs.org/viewtopic.php?id=516
+
+ Open a thread and Post conky questions in: Index » GUI & Applications
+ https://forums.bunsenlabs.org/viewforum.php?id=4
+
+ Display your completed conky and codes
+ Index » Scripts, Tutorials & Tips » Show us your conky
+ https://forums.bunsenlabs.org/viewtopic.php?id=512
+]]
+
+conky.config = {
+
+--  Begin Window Settings
+	own_window = true,
+	own_window_type = 'normal',
+	own_window_transparent = true,
+	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
+	own_window_colour = '000000',
+	own_window_class = 'Conky',
+	own_window_title = 'Bunsen Labs Default Conky',
+
+	own_window_argb_visual = true,
+	own_window_argb_value = 150,
+
+	minimum_width = 200, minimum_height = 0,-- w|h
+	maximum_width = 200,
+
+	gap_x = 20,-- l|r
+	gap_y = 45,-- u|d
+
+	alignment = 'top_right',
+
+--  End Window Settings
+--  Font Settings
+
+	use_xft = true,
+	font = 'Monospace:bold:size=9',
+	xftalpha = 1,
+	override_utf8_locale = true,
+
+	uppercase = false,
+
+--  End Font Settings
+--  Colour Settings
+
+	draw_shades = false,
+	default_shade_color = '000000',
+
+	draw_outline = false,
+	default_outline_color = '000000',
+
+	default_color = 'C0C0C0',-- Silver
+--	default_color = '678b8b',-- Beam green
+--	default_color = '656667',-- Waldorf original colour
+--	default_color = '7a7a7a',-- Flame  & Bunsen Grey
+--	default_color = '929292',-- Labs Grey
+	color0 = 'B0E0E6',-- PowderBlue
+	color1 = '778899',-- LightSlateGray
+	color2 = 'D8BFD8',-- Thistle
+	color3 = '9ACD32',-- YellowGreen
+	color4 = 'FFA07A',-- LightSalmon
+	color5 = 'FFDEAD',-- NavajoWhite
+	color6 = '00BFFF',-- DeepSkyBlue
+	color7 = '5F9EA0',-- CadetBlue
+	color8 = 'BDB76B',-- DarkKhaki
+	color9 = 'CD5C5C',-- IndianRed
+
+--  End Colour Settings
+--  Borders Section
+
+	draw_borders = false,
+	stippled_borders = 5,
+	border_inner_margin = 5,
+	border_outer_margin = 0,
+	border_width = 2,
+
+--  End Borders Section
+--  Miscellaneous Section
+
+	background = true,
+	use_spacer = 'none',
+	text_buffer_size = 6144,
+	no_buffers = true,
+	short_units = true,
+	imlib_cache_size = 0,
+	double_buffer = true,
+
+--  End Miscellaneous Section
+
+	update_interval = 1,
+
+};
+
+conky.text = [[
+${color}${alignc}S Y S T E M    I N F O
+${hr}
+Host:${alignr}${nodename}
+Uptime:${alignr}${uptime}
+UTC:${alignr}${utime %H:%M}
+
+${goto 60}Used${alignr}Size
+Root${goto 60}${fs_used /}${alignr}${fs_size /}
+Home${goto 60}${fs_used /home}${alignr}${fs_size /home}
+
+${goto 60}MEM${alignr}MAX
+RAM${goto 60}${mem}${alignr}${memmax}
+Swap${goto 60}${swap}${alignr}${swapmax}
+
+CPU:${goto 60}Used${alignr}GHz
+Avg${goto 60}${if_match ${cpu cpu0}<10}  ${cpu cpu0}\
+${else}${if_match ${cpu cpu0}<100} ${cpu cpu0}\
+${else}${cpu cpu0}${endif}${endif}%${alignr}${freq_g}
+
+${alignc}S H O R T C U T    K E Y S
+${hr}
+[Alt] + F2${alignr}Run Dialog
+[Alt] + F3${alignr}Alt Menu
+[S] + Space${alignr}Main Menu
+[S] + Tab${alignr}Client Menu
+[S] + t${alignr}Terminal
+[S] + f${alignr}File Manager
+[S] + e${alignr}Editor
+[S] + m${alignr}Media Player
+[S] + w${alignr}Web Browser
+[S] + h${alignr}Task Manager
+[S] + l${alignr}Lock Screen
+[S] + v${alignr}Volume Control
+[S] + x${alignr}Logout
+[PrtSc]${alignr}Screenshot
+]];
