@@ -39,7 +39,8 @@ Command: 'bl-install-conky --copy'
 /.config/conky/scripts
  bunsenweather.sh
 
- - - - universal script - simple - uses ISP - No setup
+- - universal script - simple - uses ISP
+ - needs API Key from http://openweathermap.org/api
 
 =====
 

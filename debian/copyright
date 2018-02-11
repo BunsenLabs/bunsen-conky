@@ -6,10 +6,11 @@ Files: *
 Copyright: 2015-2017 Sector11 <sector11@fibertel.com.ar>
            2015 Ryan Fantus
            2015-2017 damo <damo@bunsenlabs.org>
+           2018 John Crawley <john@bunsenlabs.org>
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2015-2017 John Crawley <john@bunsenlabs.org>
+Copyright: 2015-2018 John Crawley <john@bunsenlabs.org>
 License: GPL-3.0+
 
 License: GPL-3.0+
