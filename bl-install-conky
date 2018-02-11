@@ -10,13 +10,6 @@ OPTIONS:
 SOURCE=/usr/share/bunsen/skel/conky
 DEST=$HOME/.config
 
-# launch in terminal if one is not connected
-terminal=x-terminal-emulator
-[ -t 1 ] && [ -t 0 ] || {
-    exec $terminal -T 'Install conky files.' -e "$0" "$@"
-    exit 1
-}
-
 case $1 in
 --help|-h|'')
     echo "$HELP"
