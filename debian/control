@@ -1,8 +1,8 @@
 Source: bunsen-conky
 Section: misc
-Priority: extra
+Priority: optional
 Maintainer: John Crawley <john@bunsenlabs.org>
-Build-Depends: debhelper (>= 9)
+Build-Depends: debhelper (>= 9), help2man
 Standards-Version: 3.9.5
 Homepage: https://github.com/BunsenLabs/bunsen-conky
 #Vcs-Git: https://github.com/BunsenLabs/bunsen-conky.git
