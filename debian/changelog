@@ -1,3 +1,12 @@
+bunsen-conky (9.4-1) helium; urgency=medium
+
+    [Matthew T Hoare]
+  * Add grey conky.
+    [John Crawley]
+  * Set Priority to optional.
+
+ -- John Crawley <john@bunsenlabs.org>  Wed, 07 Mar 2018 18:27:56 +0900
+
 bunsen-conky (9.3-1) helium; urgency=medium
 
   * Add man page for bl-install-conky.
