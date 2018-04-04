@@ -17,6 +17,7 @@ Command: 'bl-install-conky --copy'
  conky/BL-Ellipses-Blue.conkyrc
  conky/BL-Ellipses-Grey.conkyrc
  conky/BL-Ellipses-Time.conkyrc
+ conky/BL-HiDPI.conkyrc
  conky/BL-Left.conkyrc
  conky/BL-Right-lua.conkyrc
  conky/BL-Text.conkyrc
