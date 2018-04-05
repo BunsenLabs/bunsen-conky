@@ -1,3 +1,10 @@
+bunsen-conky (9.5-1) helium; urgency=medium
+
+  [Vinzenz Vietzke]
+  * Add HiDPI conky file.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 05 Apr 2018 13:32:13 +0900
+
 bunsen-conky (9.4-1) helium; urgency=medium
 
     [Matthew T Hoare]
