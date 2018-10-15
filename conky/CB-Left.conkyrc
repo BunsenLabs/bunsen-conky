@@ -17,9 +17,9 @@
 
 conky.config = {
 
---  Begin Window Settings  
+--  Begin Window Settings
 	own_window = true,
-	own_window_type = 'normal',
+	own_window_type = 'desktop',
 	own_window_transparent = true,
 	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
 	own_window_colour = '000000',
@@ -45,8 +45,8 @@ conky.config = {
 	gap_y = 45,-- u|d
 
 	alignment = 'top_left',
---  End Window Settings  
---  Font Settings  
+--  End Window Settings
+--  Font Settings
 -- Use Xft (anti-aliased font and stuff)
 	use_xft = true,
 --font = 'Liberation Mono:bold:size=10',
@@ -55,12 +55,12 @@ conky.config = {
 
 -- Alpha of Xft font. Must be a value at or between 1 and 0
 	xftalpha = 1,
--- Force UTF8? requires XFT 
+-- Force UTF8? requires XFT
 	override_utf8_locale = true,
 
 	uppercase = false,
---  End Font Settings  
---  Color Settings  
+--  End Font Settings
+--  Color Settings
 	draw_shades = false,
 	default_shade_color = '000000',
 
@@ -81,9 +81,9 @@ conky.config = {
 	color7 = '5F9EA0',-- CadetBlue
 	color8 = 'BDB76B',-- DarkKhaki
 	color9 = 'C0C0C0',-- Silver
-	
---  End Colour Settings  
---  Borders Section  
+
+--  End Colour Settings
+--  Borders Section
 	draw_borders = false,
 -- Stippled borders?
 	stippled_borders = 5,
@@ -97,8 +97,8 @@ conky.config = {
 --default_graph_height = 15,
 --default_graph_width = 40,
 
---  End Borders Section  
---  Miscellaneous Section  
+--  End Borders Section
+--  Miscellaneous Section
 -- Boolean value, if true, Conky will be forked to background when started.
 	background = true,
 
@@ -138,7 +138,7 @@ conky.config = {
 -- either "fahrenheit" or "celsius". The default unit is degree Celsius.
 -- temperature_unit = 'Fahrenheit',
 
---  End Miscellaneous Section  
+--  End Miscellaneous Section
 
 	update_interval = 1,
 

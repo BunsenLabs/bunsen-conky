@@ -20,7 +20,7 @@ conky.config = {
 --  Begin Window Settings
 
 	own_window = true,
-	own_window_type = 'normal',
+	own_window_type = 'desktop',
 	own_window_transparent = true,
 	own_window_hints = 'undecorated,below,skip_taskbar,skip_pager,sticky',
 	own_window_colour = '000000',
@@ -65,7 +65,7 @@ conky.config = {
 	color7 = '5F9EA0',-- CadetBlue
 	color8 = 'BDB76B',-- DarkKhaki
 	color9 = 'C0C0C0',-- Silver
-	
+
 --  End Colour Settings
 --  Borders Section
 	draw_borders = false,
