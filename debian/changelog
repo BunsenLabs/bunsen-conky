@@ -1,3 +1,11 @@
+bunsen-conky (10.0-1) lithium; urgency=medium
+
+  * Migrate to BunsenLabs Lithium.
+  * Rename *.conkyrc files to *-conky.config to match current conky naming.
+  * Update standards version to 4.3.0 and debhelper compat level to 10.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 04 Jan 2019 17:32:54 +0900
+
 bunsen-conky (9.5.1-1) helium; urgency=low
 
   * Use "desktop" window type in all conkys.
