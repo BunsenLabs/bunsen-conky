@@ -2,11 +2,11 @@ Source: bunsen-conky
 Section: misc
 Priority: optional
 Maintainer: John Crawley <john@bunsenlabs.org>
-Build-Depends: debhelper (>= 9), help2man
-Standards-Version: 3.9.5
+Build-Depends: debhelper (>= 10), help2man
+Standards-Version: 4.3.0
 Homepage: https://github.com/BunsenLabs/bunsen-conky
-#Vcs-Git: https://github.com/BunsenLabs/bunsen-conky.git
-#Vcs-Browser: https://github.com/BunsenLabs/bunsen-conky.git
+Vcs-Git: https://github.com/BunsenLabs/bunsen-conky.git
+Vcs-Browser: https://github.com/BunsenLabs/bunsen-conky
 
 Package: bunsen-conky
 Architecture: all
