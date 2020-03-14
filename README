@@ -45,12 +45,12 @@ Command: 'bl-install-conky --copy'
 
 =====
 
-bl-conkyzen and bl-conky-session are installed by bunsen-utilities.
+bl-conky-manager and bl-conky-session are installed by bunsen-utilities.
 
-bl-conkyzen saves the running conkys to a default saved-session file. Different
-saved-session files can specified with:
+bl-conky-manager saves the running conkys to a default saved-session file.
+Different saved-session files can specified with:
 
-    bl-conkyzen -f /path/to/session-file
+    bl-conky-manager -f /path/to/session-file
 
 The default saved-session can be run with bl-conky-session, or different
 saved-session files with
