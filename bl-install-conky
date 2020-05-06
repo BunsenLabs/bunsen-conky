@@ -1,11 +1,16 @@
 #!/bin/bash
 
-HELP="$0: a utility to copy the conky configuration files
+HELP="bl-install conky is a utility to copy the conky configuration files
 installed by bunsen-conky into the user's home directory.
 Files will be in $HOME/.config/conky
-OPTIONS:
-[-c|-copy] copy in the files
-[-h|--help] display this message
+
+Usage:  bl-install-conky [-c|-copy] [-h|--help]
+
+Options:
+-c|-copy
+    copy in the files
+-h|--help
+    display this message
 "
 SOURCE=/usr/share/bunsen/skel/conky
 DEST=$HOME/.config
@@ -13,6 +18,7 @@ DEST=$HOME/.config
 case $1 in
 --help|-h|'')
     echo "$HELP"
+    exit 0
     ;;
 --copy|-c)
     [[ -d $SOURCE ]] || { echo "$SOURCE: no such directory" >&2;exit 1;}
@@ -28,6 +34,6 @@ $HELP"
 esac
 
 echo 'Press any key to exit'
-read -sn1
+read -srn1
 
 exit 0
