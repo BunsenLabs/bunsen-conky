@@ -1,35 +1,35 @@
-Conky
+Bunsen-Conky
+============
 
 This repository holds BunsenLabs' Conky configuration files and related scripts.
 
 Installation
 ------------
-This installation will be performed automatically 
+Files are installed to /usr/share/bunsen/skel/.config/conky by default.
+They can be copied into a user's ~/.config/conky 
 by the script /usr/bin/bl-install-conky which is in this package.
 Command: 'bl-install-conky --copy'
 
 /.config/conky
- conky/LUA
- conky/images
- conky/scripts
- conky/BL-Button.conkyrc
- conky/BL-Default.conkyrc
- conky/BL-Ellipses-Blue.conkyrc
- conky/BL-Ellipses-Grey.conkyrc
- conky/BL-Ellipses-Time.conkyrc
- conky/BL-HiDPI.conkyrc
- conky/BL-Left.conkyrc
- conky/BL-Right-lua.conkyrc
- conky/BL-Text.conkyrc
- conky/BL-Top.conkyrc
- conky/CB-Left.conkyrc
- conky/CB-Right.conkyrc
- conky/Classic.conkyrc
- conky/conkyrc_cb
+ BL-Button-conky.conf
+ BL-Default-conky.conf (symlink to current release's default conky)
+ BL-Def-Cal-conky.conf
+ BL-Ellipses-Time-Blue-conky.conf
+ BL-Fever-_Room-conky.conf
+ BL-Helium-conky.conf
+ BL-HiDPI-conky.conf
+ BL-Hydrogen-conky.conf
+ BL-Lithium-conky.conf
+ BL-Right-lua-conky.conf
+ BL-Top.conkyrc
+ BL-Yeti-conky.conf
+ Classic-conky.conf
 
 /.config/conky/LUA
- conky/LUA/clock.lua
- conky/LUA/draw-bg.lua
+ clock.lua
+ clock-dots-blue.lua
+ clock-dots-grey.lua
+ draw-bg.lua
 
 /.config/conky/images
  bl-flame-ellipses-blue.png
@@ -40,8 +40,10 @@ Command: 'bl-install-conky --copy'
 /.config/conky/scripts
  bunsenweather.sh
 
-- - universal script - simple - uses ISP
- - needs API Key from http://openweathermap.org/api
+=====
+bunsenweather.sh: universal script - simple - uses ISP
+Displays simple weather information on the desktop.
+It needs an API Key from http://openweathermap.org/api
 
 =====
 
