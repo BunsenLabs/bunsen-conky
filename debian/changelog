@@ -1,3 +1,9 @@
+bunsen-conky (11.1-1) beryllium; urgency=medium
+
+  * Move BL-Lithium-conky.conf & BL-Default-conky.conf to bunsen-configs.
+
+ -- John Crawley <john@bunsenlabs.org>  Thu, 19 Aug 2021 11:48:50 +0900
+
 bunsen-conky (11.0-1) beryllium; urgency=medium
 
   * Migrate for Debian Bullseye.
