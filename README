@@ -11,8 +11,8 @@ by the script /usr/bin/bl-install-conky which is in this package.
 Command: 'bl-install-conky --copy'
 
 /.config/conky
+ bigClock-lithium-light-conky.conf
  BL-Button-conky.conf
- BL-Default-conky.conf (symlink to current release's default conky)
  BL-Def-Cal-conky.conf
  BL-Ellipses-Time-Blue-conky.conf
  BL-Fever-_Room-conky.conf
@@ -41,6 +41,7 @@ Command: 'bl-install-conky --copy'
  bunsenweather.sh
 
 =====
+
 bunsenweather.sh: universal script - simple - uses ISP
 Displays simple weather information on the desktop.
 It needs an API Key from http://openweathermap.org/api
@@ -54,10 +55,19 @@ Different saved-session files can specified with:
 
     bl-conky-manager -f /path/to/session-file
 
+(See 'man bl-conky-manager' for more information.)
+
 The default saved-session can be run with bl-conky-session, or different
 saved-session files with
 
     bl-conky-session /path/to/file1 /path/to/file2 etc
+
+(See 'man bl-conky-session for more information.)
+
+=====
+
+This link was previously provided by bunsen-conky but is now in bunsen-configs:
+    BL-Default-conky.conf (symlink to current release's default conky)
 
 =====
 
