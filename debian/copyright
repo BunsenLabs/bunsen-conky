@@ -1,4 +1,4 @@
-Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: bunsen-conky
 Source: https://github.com/BunsenLabs/bunsen-conky
 
@@ -7,11 +7,11 @@ Copyright: 2015-2017 Sector11 <sector11@fibertel.com.ar>
            2015 Ryan Fantus
            2015-2017 damo <damo@bunsenlabs.org>
            2018 Matthew T Hoare <matthew.t.hoare@gmail.com>
-           2018-2019 John Crawley <john@bunsenlabs.org>
+           2018-2023 John Crawley <john@bunsenlabs.org>
 License: GPL-3.0+
 
 Files: debian/*
-Copyright: 2015-2021 John Crawley <john@bunsenlabs.org>
+Copyright: 2015-2023 John Crawley <john@bunsenlabs.org>
 License: GPL-3.0+
 
 License: GPL-3.0+
