@@ -1,3 +1,13 @@
+bunsen-conky (12.0-1) boron; urgency=medium
+
+  * Migrate for Debian Bookworm
+    - debian/control: Bump Standards-Version to 4.6.1.0 - no changes required.
+    - debian/control: Declare debhelper compatibility 13.
+    - debian/control: Add Rules-Requires-Root: no
+    - debian/copyright: update year, use https Format url.
+
+ -- John Crawley <john@bunsenlabs.org>  Sun, 22 Jan 2023 11:06:01 +0900
+
 bunsen-conky (11.2-1) beryllium; urgency=medium
 
   * Add previous conky BL-Lithium-conky.conf,
@@ -144,7 +154,7 @@ bunsen-conky (8.2-1) bunsen-hydrogen; urgency=medium
   * damo: Change days' display so they aren't hard-coded
 
  -- Jens John <dev@2ion.de>  Fri, 18 Sep 2015 21:27:51 +0200
- 
+
 bunsen-conky (8.1-1) bunsen-hydrogen; urgency=medium
 
   * By damo: Fix date layout in BL-Right-lua.conkyrc
