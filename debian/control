@@ -12,7 +12,7 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-conky
 Package: bunsen-conky
 Architecture: all
 Depends: ${misc:Depends}, conky-all, jq
-Recommends: bunsen-utilities, bunsen-pipemenus
+Recommends: bunsen-utilities, bunsen-pipemenus, ncal
 Description: Conky configuration files and related scripts for BunsenLabs.
  A collection of conky configuration files, images and scripts which
  allow the setting up of a variety of interesting conky displays.
