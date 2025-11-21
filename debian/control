@@ -11,7 +11,7 @@ Vcs-Browser: https://github.com/BunsenLabs/bunsen-conky
 
 Package: bunsen-conky
 Architecture: all
-Depends: ${misc:Depends}, conky-all, jq
+Depends: ${misc:Depends}, conky-all, jq, html2text
 Recommends: bunsen-utilities, bunsen-pipemenus, ncal
 Replaces: bunsen-configs (<< 13.3.5-1) bunsen-configs-lite (<< 13.3.5-1) bunsen-configs-base (<< 13.3.5-1)
 Breaks: bunsen-configs (<< 13.3.5-1) bunsen-configs-lite (<< 13.3.5-1) bunsen-configs-base (<< 13.3.5-1)
