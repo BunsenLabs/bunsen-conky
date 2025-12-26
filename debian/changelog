@@ -1,3 +1,10 @@
+bunsen-conky (13.1-1) carbon; urgency=medium
+
+  * Remove some obsolete conkys, add BL-Carbon-minimal and quote_of_the_day
+  * Move Boron conky here from bunsen-configs.
+
+ -- John Crawley <john@bunsenlabs.org>  Fri, 26 Dec 2025 16:16:31 +0900
+
 bunsen-conky (13.0-1) carbon; urgency=medium
 
   * Migrate for Debian Trixie:
