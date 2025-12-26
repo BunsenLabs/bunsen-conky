@@ -15,6 +15,6 @@ Depends: ${misc:Depends}, conky-all, jq, html2text
 Recommends: bunsen-utilities, bunsen-pipemenus, ncal
 Replaces: bunsen-configs (<< 13.3.5-1), bunsen-configs-lite (<< 13.3.5-1), bunsen-configs-base (<< 13.3.5-1)
 Breaks: bunsen-configs (<< 13.3.5-1), bunsen-configs-lite (<< 13.3.5-1), bunsen-configs-base (<< 13.3.5-1)
-Description: Conky configuration files and related scripts for BunsenLabs.
+Description: Conky configuration files and related scripts for BunsenLabs
  A collection of conky configuration files, images and scripts which
  allow the setting up of a variety of interesting conky displays.
